@@ -1,5 +1,4 @@
 import React from 'react'
-import Stack from 'react-bootstrap/Stack';
 import lightbulb from '../images/lightbulb.svg'
 
 const Header = () => {
