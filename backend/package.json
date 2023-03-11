@@ -1,0 +1,27 @@
+{
+    "name": "backend",
+    "version": "1.0.0",
+    "description": "",
+    "main": "index.js",
+    "type": "module",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1",
+        "test-win": "SET NODE_ENV=test&&mocha --timeout 10000 --exit",
+        "start-win": "SET NODE_ENV=development&&nodemon src/server"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC",
+    "dependencies": {
+        "cors": "^2.8.5",
+        "dotenv": "^16.0.3",
+        "express": "^4.18.2",
+        "express-validator": "^6.15.0",
+        "mongoose": "^7.0.1"
+    },
+    "devDependencies": {
+        "mocha": "^10.2.0",
+        "chai": "^4.3.7",
+        "chai-http": "^4.3.0"
+    }
+}
