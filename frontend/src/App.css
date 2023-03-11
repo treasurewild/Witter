@@ -1,0 +1,27 @@
+/* Colours
+#ed8b00 Orange
+#ffc600 Yellow
+#ffffff White
+#f5f5f5 lightgrey
+#0e1428 Dark navy
+*/
+
+.user {
+    color: white;
+    background-color: #6e7e85;
+}
+
+.all-wits {
+    color: #ffc600;
+    background-color: #0e1428;
+}
+
+.navbar {
+    color: #0e1428;
+    background-color: #b7cece;
+    height: 80px;
+}
+
+.main {
+    padding-top: 85px;
+}
