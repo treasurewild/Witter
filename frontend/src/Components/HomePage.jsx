@@ -9,7 +9,7 @@ const HomePage = () => {
                 <User />
             </div>
             <div className='col'>
-                <AllWits />
+                <AllWits data />
             </div>
         </div>
     )
