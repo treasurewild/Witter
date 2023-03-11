@@ -31,6 +31,9 @@ const AllWits = ({ data }) => {
     return (
         <div className='all-wits'>
             {populateWits()}
+            {/* {data.wits.map(wit => {
+                return (<Wit wit={wit} key={wit._id} />);
+            })} */}
         </div>
     )
 }

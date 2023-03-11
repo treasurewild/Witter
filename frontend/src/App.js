@@ -53,17 +53,17 @@ function App() {
     }, []);
 
     return (
-        <>
-            <div className="container-fluid">
-                <Header />
 
-                <Routes>
-                    <Route exact path="/" element={<HomePage data={{ wits }} />} />
-                </Routes>
-                <Footer />
+        <div className="container-fluid">
+            <Header />
 
-            </div>
-        </>
+            <Routes>
+                <Route exact path="/" element={<HomePage data={{ wits }} />} />
+            </Routes>
+            <Footer />
+
+        </div>
+
     );
 }
 

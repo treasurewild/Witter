@@ -1,10 +1,13 @@
 import WitModel from "../Components/utils/Wit.model";
 
-test(`Should create an instance of WitModel when constructor is called`, () => {
-    const [text] = ["Test output"];
+describe(`WitModel tests`, () => {
 
-    const testWit = new WitModel(text);
+    test(`Should create an instance of WitModel when constructor is called`, () => {
+        const [text] = ["Test output"];
 
-    expect(testWit.text).toBe(text);
-    expect(testWit).toBeInstanceOf(WitModel);
+        const testWit = new WitModel(text);
+
+        expect(testWit.text).toBe(text);
+        expect(testWit).toBeInstanceOf(WitModel);
+    })
 })
