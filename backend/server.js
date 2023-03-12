@@ -21,8 +21,7 @@ const main = async () => {
 
 main().catch(err => console.log(err));
 
-//app.use(express.json());
-//app.use(cors());
+app.use(cors());
 app.use(`/`, allWits);
 
 const server = app.listen(port, host, () => {

@@ -9,7 +9,6 @@ const Header = () => {
             <h1 className='col-11'>Witter</h1>
         </div>
 
-
     )
 }
 
