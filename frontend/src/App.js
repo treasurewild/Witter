@@ -1,7 +1,8 @@
-import HomePage from './Components/HomePage';
-import Header from './Components/Header';
 import Footer from './Components/Footer';
+import Header from './Components/Header';
 import Register from './Components/Register';
+import Login from './Components/Login';
+import HomePage from './Components/HomePage';
 import { Routes, Route } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import axios from 'axios';
@@ -33,6 +34,7 @@ function App() {
             <Routes>
                 <Route exact path="/" element={<HomePage wits={wits} />} />
                 <Route path="/register" element={<Register />} />
+                <Route path="/login" element={<Login />} />
             </Routes>
             <Footer />
 

@@ -25,7 +25,6 @@ const Register = () => {
         e.preventDefault();
         //const { name, handle, email, password } = user;
         const res = await axios.post(`${process.env.REACT_APP_WITS_URL}register`, user);
-        console.log(res.data);
         alert(res.data.message);
         //setUser({ name: { name }, handle: { handle }, email: { email }, password: { password } });
     };
@@ -37,7 +36,7 @@ const Register = () => {
             <p>
                 Already have an account?&nbsp;<Link to="/login">Sign In</Link>
             </p>
-            <form className="register-form" onSubmit={register}>
+            <form onSubmit={register}>
                 <input className="m-1" type="text" id="create-account-name" value={user.name} name="name" placeholder="FullName" onChange={handleChange} />
                 <br />
                 <input className="m-1" type="text" id="create-account-handle" value={user.handle} name="handle" placeholder="@userhandle" onChange={handleChange} />

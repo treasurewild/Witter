@@ -14,7 +14,6 @@ router.route(`/`)
         } catch (error) {
             throw error;
         }
-
-    })
+    });
 
 export { router as allWits };

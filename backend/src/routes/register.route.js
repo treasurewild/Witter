@@ -8,7 +8,6 @@ router.route('/')
         const user = new User(req.body);
 
         user.save(
-
             res.send({ message: "Registration successful" }));
     });
 
