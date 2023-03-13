@@ -3,6 +3,7 @@ import express from 'express';
 import mongoose from 'mongoose';
 import cors from 'cors';
 import { config } from 'dotenv';
+import { register } from './src/routes/register.route.js';
 
 config({ path: `.env.${process.env.NODE_ENV}` });
 
@@ -23,6 +24,7 @@ main().catch(err => console.log(err));
 
 app.use(cors());
 app.use(`/`, allWits);
+app.use(`/register`, register);
 
 const server = app.listen(port, host, () => {
     const SERVERHOST = server.address().address;

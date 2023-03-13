@@ -4,8 +4,7 @@ const witSchema = new mongoose.Schema(
     {
         _id: { type: String },
         text: { type: String, required: true },
-        witDateCreated: { type: String },
-        witTimeCreated: { type: String }
+        dateCreated: { type: String },
     }
 );
 

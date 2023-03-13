@@ -6,22 +6,86 @@
 #0e1428 Dark navy
 */
 
-.user {
-    color: white;
-    background-color: #6e7e85;
+/* .register-form {
+    padding: 8px;
+} */
+
+:root {
+    --ltback: #539165;
+    --secondary: #3f497f;
+    --primary: #f7c04a;
+    --dkback: #f8f5e4;
+    --alt: black;
 }
 
-.all-wits {
-    color: #ffc600;
-    background-color: #0e1428;
+/* Blue theme */
+/* :root {
+    --primary: #0a2647;
+    --secondary: #144272;
+    --ltback: #2052a5;
+    --dkback: #2c74b3;
+    --alt: #white;
+} */
+
+/* :root {
+    --ltback: #1c315e;
+    --secondary: #227c70;
+    --primary: #88a47c;
+    --dkback: #e6e2c3;
+    --alt: white;
+} */
+
+/* :root {
+    --primary: #e9c46a;
+    --secondary: #f4a261;
+    --ltback: #2a9d8f;
+    --dkback: #264653;
+    --alt: #e76f51;
+} */
+
+.lightbulb {
+    max-height: 200px;
+}
+
+.home-link {
+    color: var(--primary);
+    text-decoration: none;
+}
+
+.user {
+    color: var(--secondary);
+    background-color: var(--primary);
+    padding: 10px;
+}
+
+.link {
+    color: var(--secondary);
 }
 
 .navbar {
-    color: #0e1428;
-    background-color: #b7cece;
+    color: var(--primary);
+    background-color: var(--ltback);
     height: 80px;
 }
 
 .main {
     padding-top: 85px;
+    padding-bottom: 80px;
+}
+
+.info {
+    color: var(--dkback);
+    font-size: small;
+}
+
+.wit {
+    color: white;
+    background-color: var(--secondary);
+    padding: 8px 8px 0 8px;
+    min-height: 100px;
+    margin-bottom: 10px;
+}
+
+.user-name {
+    color: var(--primary);
 }

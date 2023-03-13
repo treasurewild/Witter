@@ -5,9 +5,10 @@
     "main": "server.js",
     "type": "module",
     "scripts": {
-        "test": "echo \"Error: no test specified\" && exit 1",
-        "test-win": "SET NODE_ENV=test&&mocha --timeout 10000 --exit",
-        "start-win": "SET NODE_ENV=development&&nodemon src/server"
+        "test": "NODE_ENV=test mocha --timeout=10000 --exit",
+        "start": "NODE_ENV=development nodemon index",
+        "start-win": "SET NODE_ENV=development&& nodemon index",
+        "test-win": "SET NODE_ENV=test&& mocha --timeout=10000 --exit"
     },
     "keywords": [],
     "author": "",

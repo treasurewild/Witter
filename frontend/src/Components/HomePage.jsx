@@ -4,11 +4,11 @@ import AllWits from './AllWits';
 
 const HomePage = ({ wits }) => {
     return (
-        <div className='main row container-lg'>
-            <div className='col-4 offset-2'>
+        <div className='main container-fluid row'>
+            <div className='col-3 offset-1'>
                 <User />
             </div>
-            <div className='col'>
+            <div className='col-6'>
                 <AllWits wits={wits} />
             </div>
         </div>
