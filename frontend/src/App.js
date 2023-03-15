@@ -11,6 +11,16 @@ function App() {
 
     const [user, setUser] = useState({});
 
+
+    // How do I get this to update name immediately?
+    useEffect(() => {
+        const loggedInUser = localStorage.getItem("user");
+        if (loggedInUser) {
+            const foundUser = JSON.parse(loggedInUser);
+            setUser(foundUser);
+        }
+    }, []);
+
     const [wits, setWits] = useState([]);
 
     const getWits = async () => {
@@ -34,9 +44,9 @@ function App() {
         <div className="container-fluid">
             <Header />
             <Routes>
-                <Route exact path="/" element={<HomePage user={user} setUser={setUser} wits={wits} />} />
+                <Route path="/" element={<HomePage user={user} setUser={setUser} wits={wits} />} />
                 <Route path="/register" element={<Register />} />
-                <Route path="/login" element={<Login setUser={setUser} />} />
+                <Route path="/login" element={<Login />} />
             </Routes>
             <Footer />
 

@@ -4,7 +4,7 @@ import { useNavigate, Link } from 'react-router-dom';
 import { useState } from 'react';
 import axios from 'axios';
 
-const Login = ({ setUser: setLoginUser }) => {
+const Login = () => {
 
     const navigate = useNavigate();
 
@@ -27,7 +27,7 @@ const Login = ({ setUser: setLoginUser }) => {
         alert(res.data.message);
         if (res.data.user) {
             console.dir(res.data.user);
-            setLoginUser(res.data.user);
+            localStorage.setItem(`user`, JSON.stringify(res.data.user))
             navigate('/');
         }
     }
