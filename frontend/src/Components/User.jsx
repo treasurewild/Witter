@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { useEffect } from 'react';
 
 const User = ({ user, setUser }) => {
 
@@ -7,6 +8,15 @@ const User = ({ user, setUser }) => {
         setUser({});
         localStorage.clear();
     }
+
+    // needed to do the useEffect here, not in the app component
+    useEffect(() => {
+        const loggedInUser = localStorage.getItem("user");
+        if (loggedInUser) {
+            const foundUser = JSON.parse(loggedInUser);
+            setUser(foundUser);
+        }
+    }, [user]);
 
     return (
         <div className='user shadow text-center rounded'>

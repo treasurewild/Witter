@@ -1,12 +1,18 @@
 import React from 'react';
 import lightbulb from '../images/lightbulb.svg';
 import { useNavigate, Link } from 'react-router-dom';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import axios from 'axios';
 
 const Login = () => {
 
     const navigate = useNavigate();
+
+    const [loggedIn, setLoggedIn] = useState(false);
+
+    useEffect(() => {
+        if (loggedIn) navigate('/');
+    }, [loggedIn, navigate])
 
     const [user, setUser] = useState({
         email: ``,
@@ -26,9 +32,8 @@ const Login = () => {
         const res = await axios.post(`${process.env.REACT_APP_WITS_URL}login`, user);
         alert(res.data.message);
         if (res.data.user) {
-            console.dir(res.data.user);
-            localStorage.setItem(`user`, JSON.stringify(res.data.user))
-            navigate('/');
+            localStorage.setItem(`user`, JSON.stringify(res.data.user));
+            setLoggedIn(true);
         }
     }
 

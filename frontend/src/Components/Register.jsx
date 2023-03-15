@@ -1,12 +1,10 @@
 import React from 'react';
-import { useNavigate, Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import lightbulb from '../images/lightbulb.svg';
 import { useState } from 'react';
 import axios from 'axios';
 
 const Register = () => {
-
-    const navigate = useNavigate();
 
     const [user, setUser] = useState({
         name: ``,
@@ -30,8 +28,7 @@ const Register = () => {
         if (name && handle && email && password) {
             const res = await axios.post(`${process.env.REACT_APP_WITS_URL}register`, user);
             alert(res.data.message);
-            ///aaaaarrrhc
-            setUser({ email: ``, password: ``, name: ``, handle: `` });
+            setUser({ email: ``, password: ``, name: ``, handle: `` }); // Resets the inputs
             return;
         }
     }

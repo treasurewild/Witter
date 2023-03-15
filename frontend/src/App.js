@@ -11,16 +11,6 @@ function App() {
 
     const [user, setUser] = useState({});
 
-
-    // How do I get this to update name immediately?
-    useEffect(() => {
-        const loggedInUser = localStorage.getItem("user");
-        if (loggedInUser) {
-            const foundUser = JSON.parse(loggedInUser);
-            setUser(foundUser);
-        }
-    }, []);
-
     const [wits, setWits] = useState([]);
 
     const getWits = async () => {
