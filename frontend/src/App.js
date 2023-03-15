@@ -9,6 +9,8 @@ import axios from 'axios';
 
 function App() {
 
+    const [user, setUser] = useState({});
+
     const [wits, setWits] = useState([]);
 
     const getWits = async () => {
@@ -32,9 +34,9 @@ function App() {
         <div className="container-fluid">
             <Header />
             <Routes>
-                <Route exact path="/" element={<HomePage wits={wits} />} />
+                <Route exact path="/" element={<HomePage user={user} setUser={setUser} wits={wits} />} />
                 <Route path="/register" element={<Register />} />
-                <Route path="/login" element={<Login />} />
+                <Route path="/login" element={<Login setUser={setUser} />} />
             </Routes>
             <Footer />
 

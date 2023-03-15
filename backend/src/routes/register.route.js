@@ -3,12 +3,12 @@ import User from '../models/user.model.js';
 
 const router = express.Router();
 
-router.route('/')
-    .post((req, res) => {
-        const user = new User(req.body);
+router.post('/', (req, res) => {
+    const user = new User(req.body);
 
-        user.save(
-            res.send({ message: "Registration successful" }));
-    });
+    user.save()
+        .then(() => res.send({ message: "Registration successful" }))
+        .catch(() => res.send({ message: 'This user already exists' }))
+});
 
 export { router as register };

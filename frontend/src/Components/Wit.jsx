@@ -8,7 +8,7 @@ const Wit = ({ wit }) => {
     const date = new Date(dateCreated).toUTCString();
 
     return (
-        <div className='wit rounded'>
+        <div className='wit shadow rounded'>
             <h5 className='user-name'>Username <span className='info'>@handle</span></h5>
             <p className='offset-1 col-10'>{text}</p>
             <div className='row info container-lg'>

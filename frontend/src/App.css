@@ -68,6 +68,12 @@
     height: 80px;
 }
 
+.user-box {
+    background-color: var(--ltback);
+    color: var(--dkback);
+    padding: 10px;
+}
+
 .main {
     padding-top: 85px;
     padding-bottom: 80px;
