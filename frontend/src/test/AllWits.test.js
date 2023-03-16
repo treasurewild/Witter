@@ -2,14 +2,13 @@ import AllWits from "../Components/AllWits";
 import { MemoryRouter } from 'react-router-dom';
 import { render, screen } from '@testing-library/react';
 import sampleWits from './sampleWits.json';
-import { useState, useEffect } from "react";
 
 describe(`All Wits Tests`, () => {
     test(`Should render a loading message before the Wits are available`, async () => {
         const noData = { wits: [], error: `` };
         render(
             <MemoryRouter>
-                <AllWits wits={noData} />
+                <AllWits data={noData} />
             </MemoryRouter>
         );
 
@@ -21,7 +20,7 @@ describe(`All Wits Tests`, () => {
         render
             (
                 <MemoryRouter >
-                    <AllWits wits={errorData} />
+                    <AllWits data={errorData} />
                 </MemoryRouter>
             );
 
@@ -29,14 +28,26 @@ describe(`All Wits Tests`, () => {
     })
 
     test(`Should render the correct number of Wit components based on data supplied`, async () => {
-        const witData = { wits: sampleWits, error: `` };
+        const witData = { wits: sampleWits.wits, error: "" };
+
         render(
             <MemoryRouter >
-                <AllWits wits={witData} />
+                <AllWits data={witData} />
             </MemoryRouter>
         );
 
         const wits = await screen.getAllByText(/Sample Wit/i);
         expect(wits.length).toBe(4);
+    });
+
+    test(`it should render a line saying there are no wits if empty`, async () => {
+        render(
+            <MemoryRouter >
+                <AllWits data={{ wits: [], error: `There are no wits available` }} />
+            </MemoryRouter>
+        );
+
+        const wits = await screen.findByText(/There are no wits available/i);
+        expect(wits).toBeInTheDocument();
     });
 });
