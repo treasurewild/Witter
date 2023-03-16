@@ -1,5 +1,5 @@
-import Wit from "../Components/Wit";
+// import Wit from "../Components/Wit";
 
-describe(`Wit Component tests`, () => {
-    test()
-})
+// describe(`Wit Component tests`, () => {
+//     test()
+// })

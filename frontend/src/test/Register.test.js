@@ -1,17 +1,17 @@
-import Register from "../Components/Register";
-import sampleWits from './sampleWits.json';
+// import Register from "../Components/Register";
+// import sampleWits from './sampleWits.json';
 
-jest.mock('../Components/utils/createId', () => 'test_id');
+// jest.mock('../Components/utils/createId', () => 'test_id');
 
-describe(`Register component tests`, () => {
+// describe(`Register component tests`, () => {
 
-    const mockSubmit = jest.fn(() => { });
+//     const mockSubmit = jest.fn(() => { });
 
-    beforeEach(() => {
-        const routes = 
-    })
+//     beforeEach(() => {
+//         const routes =
+//     })
 
-    test(``, () => {
+//     test(``, () => {
 
-    })
-})
+//     })
+// })

@@ -5,7 +5,7 @@ import Login from './Components/Login';
 import HomePage from './Components/HomePage';
 import { Routes, Route } from 'react-router-dom';
 import { useState, useEffect } from 'react';
-import axios from 'axios';
+import { getWits } from './Components/async/witAPIcalls.js';
 
 function App() {
 
@@ -13,20 +13,23 @@ function App() {
 
     const [wits, setWits] = useState([]);
 
-    const getWits = async () => {
-        try {
-            const res = await axios.get(process.env.REACT_APP_WITS_URL);
-            setWits(res.data);
-        } catch (e) {
-            return {
-                wits: [],
-                status: e.response?.status ?? 204
-            }
+    const [error, setError] = useState({ type: ``, message: `` });
+
+    const getWitsHandler = async () => {
+        const getWitsResult = await getWits();
+
+        if (getWitsResult?.error) {
+            const errorObject = { ...getWitsResult.error };
+            errorObject.message = `There was a problem getting the wits: ${getWitsResult.error.message}`;
+            setError(errorObject);
         }
+
+        const wits = getWitsResult?.wits ? getWitsResult.wits : [];
+        setWits(wits);
     }
 
     useEffect(() => {
-        getWits();
+        getWitsHandler();
     }, []);
 
     return (
@@ -34,7 +37,7 @@ function App() {
         <div className="container-fluid">
             <Header />
             <Routes>
-                <Route path="/" element={<HomePage user={user} setUser={setUser} wits={wits} />} />
+                <Route path="/" element={<HomePage user={user} setUser={setUser} data={{ wits, error: error.message }} />} />
                 <Route path="/register" element={<Register />} />
                 <Route path="/login" element={<Login />} />
             </Routes>

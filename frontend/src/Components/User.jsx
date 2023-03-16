@@ -12,11 +12,10 @@ const User = ({ user, setUser }) => {
     // needed to do the useEffect here, not in the app component
     useEffect(() => {
         const loggedInUser = localStorage.getItem("user");
-        if (loggedInUser) {
-            const foundUser = JSON.parse(loggedInUser);
-            setUser(foundUser);
-        }
-    }, [user]);
+        if (loggedInUser)
+            setUser(JSON.parse(loggedInUser));
+    }, [setUser]);
+
 
     return (
         <div className='user shadow text-center rounded'>
