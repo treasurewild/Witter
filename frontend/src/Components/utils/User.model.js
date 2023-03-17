@@ -1,4 +1,4 @@
-import createId from "./createId";
+import createId from "./createId.js";
 
 export default class UserModel {
     constructor(name, handle, email, password) {

@@ -1,6 +1,6 @@
 import React from 'react'
-import User from './User';
-import AllWits from './AllWits';
+import User from './User.jsx';
+import AllWits from './AllWits.jsx';
 
 const HomePage = ({ user, setUser, data }) => {
     return (

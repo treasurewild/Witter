@@ -1,6 +1,6 @@
 import React from 'react'
-import Wit from './Wit';
-import WitModel from './utils/Wit.model';
+import Wit from './Wit.jsx';
+import WitModel from './utils/Wit.model.js';
 import { useState, useEffect } from "react";
 
 const AllWits = ({ data }) => {
@@ -22,7 +22,7 @@ const AllWits = ({ data }) => {
 
         if (wits?.length > 0) {
             const displayWits = wits.map(currentWit => {
-                const wit = new WitModel(currentWit.text, currentWit.dateCreated);
+                const wit = new WitModel(currentWit.text, currentWit.dateCreated, currentWit.postedBy);
                 return (<Wit wit={wit} key={wit._id} />)
             });
             return displayWits;

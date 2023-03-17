@@ -1,8 +1,8 @@
-import Footer from './Components/Footer';
-import Header from './Components/Header';
-import Register from './Components/Register';
-import Login from './Components/Login';
-import HomePage from './Components/HomePage';
+import Footer from './Components/Footer.jsx';
+import Header from './Components/Header.jsx';
+import Register from './Components/Register.jsx';
+import Login from './Components/Login.jsx';
+import HomePage from './Components/HomePage.jsx';
 import { Routes, Route } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import { getWits } from './Components/async/witAPIcalls.js';
