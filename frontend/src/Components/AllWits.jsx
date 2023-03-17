@@ -19,7 +19,6 @@ const AllWits = ({ data }) => {
 
     const populateWits = () => {
         const { wits } = data;
-        console.dir(wits)
 
         if (wits?.length > 0) {
             const displayWits = wits.map(currentWit => {
