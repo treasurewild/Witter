@@ -6,7 +6,6 @@ import Wit from '../models/wit.model.js';
 const router = express.Router();
 
 router.post('/', (req, res) => {
-    console.dir(req.body)
     const wit = new Wit(req.body);
 
     wit.save()
