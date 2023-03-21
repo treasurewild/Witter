@@ -2,9 +2,13 @@ import mongoose from 'mongoose';
 
 const witSchema = new mongoose.Schema(
     {
-        _id: { type: String },
-        text: { type: String, required: true },
-        dateCreated: { type: String },
+        _id: String,
+        text: String,
+        dateCreated: String,
+        postedBy: {
+            type: mongoose.Schema.Types.ObjectId,
+            ref: "User"
+        }
     }
 );
 

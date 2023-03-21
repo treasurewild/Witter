@@ -5,6 +5,7 @@ import cors from 'cors';
 import { config } from 'dotenv';
 import { register } from './src/routes/register.route.js';
 import { login } from './src/routes/login.route.js';
+import { addWit } from './src/routes/addWit.route.js';
 
 config({ path: `.env.${process.env.NODE_ENV}` });
 
@@ -26,7 +27,8 @@ main().catch(err => console.log(err));
 app.use(cors());
 app.use(`/`, allWits);
 app.use(`/register`, register);
-app.use('/login', login)
+app.use('/login', login);
+app.use('/addWit', addWit);
 
 const server = app.listen(port, host, () => {
     const SERVERHOST = server.address().address;
