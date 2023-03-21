@@ -6,6 +6,7 @@ import HomePage from './Components/HomePage.jsx';
 import { Routes, Route } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import { getWits } from './Components/async/witAPIcalls.js';
+import AddWit from './Components/AddWit.jsx';
 
 function App() {
 
@@ -30,7 +31,7 @@ function App() {
 
     useEffect(() => {
         getWitsHandler();
-    }, []);
+    }, [wits]);
 
     return (
 
@@ -40,7 +41,10 @@ function App() {
                 <Route path="/" element={<HomePage user={user} setUser={setUser} data={{ wits, error: error.message }} />} />
                 <Route path="/register" element={<Register />} />
                 <Route path="/login" element={<Login />} />
+                <Route path="/addWit" element={<AddWit user={user} setUser={setUser} />} />
+
             </Routes>
+
             <Footer />
 
         </div>

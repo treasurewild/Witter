@@ -1,10 +1,10 @@
 import createId from "./createId.js";
 
 export default class WitModel {
-    constructor(text, dateCreated, user) {
+    constructor(text, dateCreated, postedBy) {
         this._id = createId();
         this.text = text;
         this.dateCreated = dateCreated;
-        this.postedBy = user;
+        this.postedBy = postedBy;
     }
 }

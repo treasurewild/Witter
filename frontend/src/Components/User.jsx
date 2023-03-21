@@ -22,10 +22,13 @@ const User = ({ user, setUser }) => {
             {localStorage.getItem('user') ?
                 <>
                     <h5>You are posting as:</h5>
-                    <div className='rounded user-box'>
+                    <div className='rounded user-box m-1'>
                         <h5>{user.name}</h5>
                         <h5>@{user.handle}</h5>
                     </div>
+                    <form action='/addWit'>
+                        <button type="submit" className='m-2 btn btn-primary btn-lg btn-block' value="addWit">Add new Wit</button><br />
+                    </form>
                     <button type="submit" className='m-1 btn btn-secondary' value="Logout" onClick={() => logOut()}>Log Out</button>
                 </>
                 :
@@ -35,6 +38,7 @@ const User = ({ user, setUser }) => {
                         <button type="submit" className='m-1 btn btn-success' value="Login">Login</button><br />
                     </form>
                     <Link className='link' to="/register">Register</Link><br />
+
                 </>
             }
         </div>
