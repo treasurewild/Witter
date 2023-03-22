@@ -7,11 +7,11 @@ const router = express.Router();
 
 router.route(`/`)
     .get(async (req, res) => {
-        // I have no idea why this version worked, but putting the try-catch inside a function and then calling it didn't, but hey
         try {
             const allWits = await Wit.find({})
                 .populate('postedBy', ['name', 'handle']);
-            res.send(allWits);
+            if (allWits.length === 0) throw new Error(`Wits not found`);
+            res.json(allWits);
         } catch (error) {
             throw error;
         }
