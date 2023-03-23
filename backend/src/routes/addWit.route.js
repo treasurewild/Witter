@@ -1,5 +1,6 @@
 import express from 'express';
 import Wit from '../models/wit.model.js';
+import { witValidation } from '../middlewares/witValidation.js';
 
 //Controller and validation to add
 
