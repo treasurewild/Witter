@@ -12,7 +12,7 @@ config({ path: `.env.${process.env.NODE_ENV}` });
 import { allWits } from './src/routes/allWits.route.js';
 
 const port = process.env.PORT;
-const host = process.env.HOST;
+//const host = process.env.HOST;
 const app = express();
 app.use(bodyParser.json());
 
@@ -30,7 +30,7 @@ app.use(`/register`, register);
 app.use('/login', login);
 app.use('/addWit', addWit);
 
-const server = app.listen(port, host, () => {
+const server = app.listen(port, () => {
     const SERVERHOST = server.address().address;
     const SERVERPORT = server.address().port;
     console.log(`Server is listening on http://${SERVERHOST}:${SERVERPORT}`);
