@@ -23,12 +23,13 @@ const AllWits = ({ data }) => {
         if (wits?.length > 0) {
             orderWits(wits);
             const displayWits = wits.map(currentWit => {
-                // Removes any Wits that have an unknown author.
+                // Wits that have no user attached to the ID are not displayed.
                 if (currentWit.postedBy !== null) {
                     const wit = new WitModel(currentWit.text, currentWit.dateCreated, currentWit.postedBy);
                     console.dir(currentWit)
                     return (<Wit wit={wit} key={wit._id} />)
                 }
+                return null;
             });
             return displayWits;
         }

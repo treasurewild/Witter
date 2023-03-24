@@ -1,22 +1,30 @@
 Chitter Challenge
 =================
 
-* Feel free to use Google, your notes, books, etc. but work on your own
-* If you refer to the solution of another coach or trainee, please put a link to that in your README
-* If you have a partial solution, **still check in a partial solution**
-* You must submit your work by 9:30am Monday morning
+## Introduction
 
-Challenge:
--------
+This MERN (Mongoose, Express, React, Node.js) project creates a simple mock of a Twitter-like social media platform. Our working title was "Chitter", but I've taken the liberty of calling mine "Witter", so that people can share their "Wit".
 
-As usual please start by forking this repo.
+It provides the following functionality:
+* User registration (email, user name, user handle, password)
+* User login using email and password
+* Users can add a "Wit" when they are logged in. This will attach their userId to the Wit.
+* The homepage displays all of the available Wits in reverse chronological order.
 
-We are going to write a small twitter clone that will allow users to post messages to a public wall.
+The project borrows features from the Todos app provided for reference by Digital Futures. It is tested using Chai, Mocha and Jest.
 
-Good luck and let the chitter begin!
+There are lots of features that could be added, here are a few that would be important, both for my learning and better functionality:
+* JWT authentication - encrypting passwords. This is obviously vital for any genuinely deployed app.
+* Replying to another user. This is an interesting feature to add because of the way is can reuse the functionality of other components, and create a chain of connections between the Wits. That conversation can get very complicated, very quickly, if replies to replies are also allowed, because of the branching threads that would be created. From a database point of view it isn't complicated though, since a reply can only be attached to one Wit.
 
-Features:
--------
+## How to run the program
+
+The easiest way is to use the Netlify version, which will run automatically. 
+
+You can also clone the repository and run the app on your own machine. You will need to install the following:
+Backend:
+* npm i
+
 
 ### Standard Acceptance Criteria
 ```
