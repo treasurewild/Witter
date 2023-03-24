@@ -10,7 +10,7 @@ const testData = {
             "_id": "5cc08495bf3fd62d03f2f4c2",
             "text": "Sample Wit 2",
             "dateCreated": "2017-09-03T18:20Z",
-            "postedBy": "64118f2d5fc0942d5e749885"
+            "postedBy": "64118f2d5fc0942d5e749886" // User does not exist
         },
         {
             "_id": "5cc08495bf3fd62d03f2f4c3",

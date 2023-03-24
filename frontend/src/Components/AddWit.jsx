@@ -8,10 +8,9 @@ const AddWit = ({ user, setUser }) => {
 
     const [wit, setWit] = useState({});
 
-    const userId = () => {
+    const postedBy = () => {
         const currentUser = JSON.parse(localStorage.getItem('user'));
-        console.dir(currentUser)
-        return currentUser._id;
+        return currentUser;
     }
 
     const handleChange = e => {
@@ -24,7 +23,7 @@ const AddWit = ({ user, setUser }) => {
 
     const addWit = (e) => {
         e.preventDefault();
-        const newWit = new WitModel(wit.text, new Date(), userId());
+        const newWit = new WitModel(wit.text, new Date(), postedBy());
         console.dir(newWit);
         addWitReq(newWit);
     }

@@ -60,4 +60,6 @@ describe(`All Wits routes tests`, () => {
         expect(sampleWit.postedBy.handle).to.be.eql(`sampleuser1`);
 
     });
+
+
 })

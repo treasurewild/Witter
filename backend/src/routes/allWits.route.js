@@ -9,11 +9,10 @@ router.route(`/`)
     .get(async (req, res) => {
         try {
             const allWits = await Wit.find({})
-                .populate('postedBy', ['name', 'handle']);
-            if (allWits.length === 0) throw new Error(`Wits not found`);
+                .populate('postedBy', ['name', 'handle'])
+            //if (allWits.length === 0) throw new Error(`Wits not found`);
             res.json(allWits);
         } catch (error) {
-            console.log(allWits.length)
             res.status(400);
             throw error;
         }
