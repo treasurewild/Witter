@@ -26,7 +26,6 @@ const AllWits = ({ data }) => {
                 // Wits that have no user attached to the ID are not displayed.
                 if (currentWit.postedBy !== null) {
                     const wit = new WitModel(currentWit.text, currentWit.dateCreated, currentWit.postedBy);
-                    console.dir(currentWit)
                     return (<Wit wit={wit} key={wit._id} />)
                 }
                 return null;

@@ -1,6 +1,6 @@
 import AllWits from "../Components/AllWits";
 import { MemoryRouter } from 'react-router-dom';
-import { render, screen } from '@testing-library/react';
+import { findAllByText, render, screen } from '@testing-library/react';
 import sampleWits from './sampleWits.json';
 
 describe(`All Wits Tests`, () => {
@@ -28,7 +28,7 @@ describe(`All Wits Tests`, () => {
     })
 
     test(`Should render the correct number of Wit components based on data supplied`, async () => {
-        const witData = { wits: sampleWits.wits, error: "" };
+        const witData = { wits: sampleWits, error: "" };
 
         render(
             <MemoryRouter >
@@ -49,5 +49,21 @@ describe(`All Wits Tests`, () => {
 
         const wits = await screen.findByText(/There are no wits available/i);
         expect(wits).toBeInTheDocument();
+    });
+
+    test(`Wits are displayed in reverse chronological order`, async () => {
+        const witData = { wits: sampleWits, error: "" };
+
+        render(
+            <MemoryRouter >
+                <AllWits data={witData} />
+            </MemoryRouter>
+        );
+
+        const { wits } = witData;
+        expect(wits[0].text).toBe("Sample Wit 4");
+        expect(wits[1].text).toBe("Sample Wit 1");
+        expect(wits[2].text).toBe("Sample Wit 2");
+        expect(wits[3].text).toBe("Sample Wit 3");
     });
 });

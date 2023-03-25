@@ -1,7 +1,6 @@
 import Register from "../Components/Register";
 import { render, screen } from '@testing-library/react';
 import { MemoryRouter } from "react-router-dom";
-import sampleWits from './sampleWits.json';
 
 jest.mock('../Components/utils/createId', () => () => 'test_id');
 
