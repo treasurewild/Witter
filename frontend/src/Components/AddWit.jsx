@@ -2,16 +2,13 @@ import React from 'react';
 import { useState } from 'react';
 import User from './User';
 import WitModel from './utils/Wit.model.js';
-import axios from 'axios';
+import { postWit } from './async/witAPIcalls';
 
 const AddWit = ({ user, setUser }) => {
 
     const [wit, setWit] = useState({});
 
-    const postedBy = () => {
-        const currentUser = JSON.parse(localStorage.getItem('user'));
-        return currentUser;
-    }
+    const postedBy = JSON.parse(localStorage.getItem('user'));
 
     const handleChange = e => {
         const { value } = e.target;
@@ -23,21 +20,9 @@ const AddWit = ({ user, setUser }) => {
 
     const addWit = (e) => {
         e.preventDefault();
-        const newWit = new WitModel(wit.text, new Date(), postedBy());
-        console.dir(newWit);
-        addWitReq(newWit);
-    }
-
-    const addWitReq = async wit => {
-        //e.preventDefault();
-        //const { text, dateCreated, user } = wit;
-        //if (wit.text) {
-        const res = await axios.post(`${process.env.REACT_APP_WITS_URL}addWit`, wit);
-        alert(res.data.message);
+        const newWit = new WitModel(wit.text, new Date(), postedBy);
+        postWit(newWit);
         setWit({ text: `` }); // Resets the inputs
-        return;
-        //}
-
     }
 
     return (
@@ -50,7 +35,7 @@ const AddWit = ({ user, setUser }) => {
                     <form onSubmit={addWit}>
                         <div className="form-group">
                             <label >Share your Wit:</label>
-                            <input className="form-control input-lg" id="add-wit" value={wit.text} type="text" onChange={handleChange} autoComplete="off" required />
+                            <input className="form-control input-lg" id="add-wit" value={wit.text} type="text" onChange={handleChange} placeholder="Share your wit..." autoComplete="off" required />
                         </div>
                         <button type="submit" className='btn btn-success m-2'>
                             Post

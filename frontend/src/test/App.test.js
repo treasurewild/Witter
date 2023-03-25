@@ -2,7 +2,6 @@ import App from '../App.js';
 import { MemoryRouter } from 'react-router-dom';
 import * as api from '../Components/async/witAPIcalls.js';
 import { render, screen } from '@testing-library/react';
-import sampleWits from '../test/sampleWits.json';
 
 jest.mock('../Components/async/witAPIcalls');
 

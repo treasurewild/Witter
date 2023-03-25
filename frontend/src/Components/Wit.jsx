@@ -10,11 +10,9 @@ const Wit = ({ wit }) => {
     return (
         <div className='wit shadow rounded'>
             <h5 className='user-name'>{postedBy.name} <span className='info'>@{postedBy.handle}</span></h5>
-            <p className='offset-1 col-10'>{text}</p>
+            <p className='text offset-1 col-10'>{text}</p>
             <div className='row info container-lg'>
-                <div className='col-4 offset-8'>
-                    <p>{date}</p>
-                </div>
+                <p className='date col-4 offset-8'>{date}</p>
             </div>
         </div>
     )

@@ -43,9 +43,9 @@ const Login = () => {
             <img className="lightbulb" src={lightbulb} alt='lightbulb logo' />
             <h3>Login</h3>
             <form onSubmit={login}>
-                <input className="m-1" type="text" name='email' value={user.email} onChange={handleChange} placeholder='Email address' required />
+                <input className="m-1" aria-label="text" type="text" name='email' value={user.email} onChange={handleChange} placeholder='Email address' required />
                 <br />
-                <input className="m-1" type='password' name="password" value={user.password} onChange={handleChange} placeholder='Password' required />
+                <input className="m-1" type='password' aria-label="password" name="password" value={user.password} onChange={handleChange} placeholder='Password' required />
                 <br />
                 <button className="m-2 btn btn-success">Login</button>
             </form>

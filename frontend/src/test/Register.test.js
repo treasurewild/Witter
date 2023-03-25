@@ -9,22 +9,18 @@ describe(`Register component tests`, () => {
     const mockSubmit = jest.fn(() => { });
 
     beforeEach(() => {
-        // const routes = [
-        //     {
-        //         path: '/register',
-        //         element: <Register />
-        //     },
-        //     {
-        //         path: '/',
-        //         element: <p>Redirect to HomePage</p>
-        //     }
-        // ]
-
         render(<MemoryRouter><Register /></MemoryRouter>)
     })
 
     test(`Should render title "create new account"`, () => {
         const title = screen.getByText(/create new account/i);
         expect(title).toBeInTheDocument();
+    })
+
+    test(`Should contain inputs for email, handle, name and password`, () => {
+        expect(screen.getByPlaceholderText('Full Name')).toBeTruthy();
+        expect(screen.getByPlaceholderText('@userhandle')).toBeTruthy();
+        expect(screen.getByPlaceholderText('Email')).toBeTruthy();
+        expect(screen.getByPlaceholderText('Password')).toBeTruthy();
     })
 })

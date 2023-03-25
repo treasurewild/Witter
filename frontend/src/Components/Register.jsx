@@ -3,7 +3,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import lightbulb from '../images/lightbulb.svg';
 import { useState } from 'react';
-import axios from 'axios';
+import { postUser } from './async/userAPIcalls';
 
 const Register = () => {
 
@@ -27,10 +27,8 @@ const Register = () => {
         e.preventDefault();
         const { name, handle, email, password } = user;
         if (name && handle && email && password) {
-            const res = await axios.post(`${process.env.REACT_APP_WITS_URL}register`, user);
-            alert(res.data.message);
+            postUser(user);
             setUser({ email: ``, password: ``, name: ``, handle: `` }); // Resets the inputs
-            return;
         }
     }
 
@@ -42,7 +40,7 @@ const Register = () => {
                 Already have an account?&nbsp;<Link to="/login">Sign In</Link>
             </p>
             <form onSubmit={register}>
-                <input className="m-1" type="text" id="create-account-name" value={user.name} name="name" placeholder="FullName" onChange={handleChange} required />
+                <input className="m-1" type="text" id="create-account-name" value={user.name} name="name" placeholder="Full Name" onChange={handleChange} required />
                 <br />
                 <input className="m-1" type="text" id="create-account-handle" value={user.handle} name="handle" placeholder="@userhandle" onChange={handleChange} required />
                 <br />
