@@ -13,15 +13,16 @@ export const postUser = async (user) => {
 export const submitLogin = async (user) => {
     try {
         const res = await axios.post(`${process.env.REACT_APP_WITS_URL}login`, user);
-        console.dir(res)
         return { message: res.data.message, status: res.status, user: res.data.user }
     }
     catch (error) {
+        console.dir(error)
+
         return {
             status: error.response?.status,
             error: {
                 type: "post",
-                message: error.response?.message
+                message: error.response.data.message
             }
         }
     }

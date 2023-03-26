@@ -13,7 +13,7 @@ router.post('/', async (req, res) => {
                 .then((passwordCheck) => {
                     if (!passwordCheck) {
                         return res.status(400).send({
-                            message: `Incorrect password`,
+                            message: 'Incorrect password',
                             error
                         });
                     }
