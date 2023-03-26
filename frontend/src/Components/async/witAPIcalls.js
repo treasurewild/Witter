@@ -14,14 +14,17 @@ export const getWits = async () => {
 }
 
 export const postWit = async wit => {
-    // await axios.post(`${process.env.REACT_APP_WITS_URL}addWit`, wit)
-    //     .then(res => { alert(res.data.message) })
-    //     .catch(err => { alert('There was a problem sending the data to the server') })
     try {
         const res = await axios.post(`${process.env.REACT_APP_WITS_URL}addWit`, wit)
-        alert(res.data.message)
+        return { message: res.data.message, status: res.status, user: res.data.user }
     }
     catch (error) {
-        alert('There was a problem sending the data to the server')
+        return {
+            status: error.response?.status,
+            error: {
+                type: "post",
+                message: error.response.data.message
+            }
+        }
     }
 }
