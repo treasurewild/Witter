@@ -5,7 +5,7 @@ export const testUsers = [
         "name": "Sample User 1",
         "handle": "sampleuser1",
         "email": "sampleuser1@gmail.com",
-        "password": "password",
+        "password": "$2b$10$YoeIfFekS9hEBiteI30J5.Ssod91d8jMq6N8I4ar8h8ertImyXW8y", //polly
         "__v": 0
 
     },
@@ -14,7 +14,7 @@ export const testUsers = [
         "name": "Phil Collins",
         "handle": "intheair",
         "email": "phil@susudio.org",
-        "password": "icantdance",
+        "password": "$2b$10$YoeIfFekS9hEBiteI30J5.Ssod91d8jMq6N8I4ar8h8ertImyXW8y",
         "__v": 0
     }
 ]

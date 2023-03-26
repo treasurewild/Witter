@@ -7,17 +7,6 @@ const router = express.Router();
 
 router.post('/', async (req, res) => {
 
-    // const { email, password } = req.body;
-
-    // const user = await User.findOne({ email: email });
-
-    // if (user && user.password === password)
-    //     res.send({
-    //         message: `Login successful`,
-    //         user: user,
-    //     });
-    // else res.send({ message: `Incorrect username/password` });
-
     User.findOne({ email: req.body.email })
         .then((user) => {
             bcrypt.compare(req.body.password, user.password)
@@ -36,7 +25,7 @@ router.post('/', async (req, res) => {
                         { expiresIn: "24h" }
                     );
 
-                    res.status(200).send({
+                    res.status(200).json({
                         message: `Login successful`,
                         email: user.email,
                         user: user,

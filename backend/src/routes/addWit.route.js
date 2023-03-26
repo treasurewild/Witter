@@ -1,17 +1,25 @@
 import express from 'express';
 import Wit from '../models/wit.model.js';
+import User from '../models/user.model.js';
 import { witValidation } from '../middlewares/witValidation.js';
 
 //Controller and validation to add
 
 const router = express.Router();
 
-router.post('/', (req, res) => {
-    const wit = new Wit(req.body);
+router.post('/', async (req, res) => {
 
-    wit.save()
-        .then(() => res.send({ message: "Posted successfully" }))
-        .catch(() => res.send({ message: 'There was a problem posting your wit' }))
+    const wit = new Wit(req.body);
+    const { dateCreated, text, postedBy } = req.body;
+
+    if (dateCreated && text && postedBy) {
+        wit.save()
+            .then(() => res.status(200).send({ message: "Posted successfully" }))
+            .catch(() => res.status(400).send({ message: 'There was a problem posting your wit' }))
+    }
+    else return res.status(422).send(`Failed to add wit`);
+
+
 });
 
 

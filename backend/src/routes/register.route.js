@@ -5,20 +5,18 @@ import bcrypt from 'bcrypt';
 const router = express.Router();
 
 router.post('/', (req, res) => {
-    //const user = new User(req.body);
-
     bcrypt
         .hash(req.body.password, 10)
-        .then((hashedPassword) => {
+        .then(async (hashedPassword) => {
             const user = new User({
                 name: req.body.name,
                 handle: req.body.handle,
                 email: req.body.email,
                 password: hashedPassword,
             });
-            user.save()
-                .then((result) => res.send({ message: "Registration successful", result }))
-                .catch(() => res.send({ message: 'This user already exists' }))
+            await user.save()
+                .then((result) => { return res.status(200).send({ message: "Registration successful", result }) })
+                .catch(() => { return res.status(400).send({ message: 'This user already exists' }) })
         })
         .catch((e) => {
             res.status(500).send({

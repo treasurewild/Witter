@@ -26,7 +26,7 @@ describe(`All Wits routes tests`, () => {
 
         try {
             await Wit.insertMany(testDataArray);
-            await User.insertMany(testUsers)
+            await User.insertMany(testUsers);
             console.log(`Test data inserted into Wits collection`);
         } catch (error) {
             console.log(`Error inserting into Wits collection`);
@@ -54,7 +54,6 @@ describe(`All Wits routes tests`, () => {
             .send();
 
         const sampleWit = res.body[0];
-        console.dir(sampleWit)
 
         expect(sampleWit.postedBy.name).to.be.eql(`Sample User 1`);
         expect(sampleWit.postedBy.handle).to.be.eql(`sampleuser1`);
