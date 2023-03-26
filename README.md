@@ -18,6 +18,10 @@ There are lots of features that could be added, here are a few that would be imp
 * Some of the user interface doesn't flow as well as it could. Verifying logins and postings and redirecting accordingly would be a good addition.
 * Replying to another user. This is an interesting feature to add because of the way is can reuse the functionality of other components, and create a chain of connections between the Wits. That conversation can get very complicated, very quickly, if replies to replies are also allowed, because of the branching threads that would be created. From a database point of view it isn't complicated though, since a reply can only be attached to one Wit.
 
+## Resources
+
+This project made extensive use of the Simple Login, Todo App and JWT examples given by Digital Futures. I also used many online resources to help me to understand new concepts. The Net Ninja youTube channel was a great help, and this post on [JWT Authentication](https://www.freecodecamp.org/news/how-to-build-a-fullstack-authentication-system-with-react-express-mongodb-heroku-and-netlify/) from freecodecamp.org provided a great walkthrough to add hashed passwords to my app.
+
 ## How to run the program
 
 The easiest way is to use the Netlify version, which will run automatically. 
@@ -25,6 +29,9 @@ The easiest way is to use the Netlify version, which will run automatically.
 You can also clone the repository and run the app on your own machine. You will need to install the following:
 Backend:
 
+## Reflections
+
+Despite the limited functionality of this app at present, the process of development was much more complex than on previous challenges. I found it hard to stay focussed on achieving small increments towards each user story, and despite making a thorough plan for the structure of my program it was tricky to stick to it. I found testing some parts of a program difficult and need to learn more about this. I also need to take more time over making components work in the way I want them to from the start. In this case a lack of experience or confidence led to me moving on from some tasks once the basic functionality worked, because I struggled to implement slightly different flows to the UI, and it was difficult to estimate the time it might take to improve them. This stored up a problem for later when different parts of the code function in slightly different ways, and altering the functionality at this stage becomes fraught with minor problems. I feel like if I started the project from the beginning I would have a better idea of hwo this would work in the future, but it will also be a useful exercise to clean up my existing code without creating new problems.
 
 
 ### Standard Acceptance Criteria

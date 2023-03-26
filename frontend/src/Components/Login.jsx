@@ -2,8 +2,7 @@ import React from 'react';
 import lightbulb from '../images/lightbulb.svg';
 import { useNavigate, Link } from 'react-router-dom';
 import { useEffect, useState } from 'react';
-import axios from 'axios';
-
+import { submitLogin } from './async/userAPIcalls';
 const Login = () => {
 
     const navigate = useNavigate();
@@ -29,10 +28,11 @@ const Login = () => {
 
     const login = async (e) => {
         e.preventDefault();
-        const res = await axios.post(`${process.env.REACT_APP_WITS_URL}login`, user);
-        alert(res.data.message);
-        if (res.data.user) {
-            localStorage.setItem(`user`, JSON.stringify(res.data.user));
+        const res = await submitLogin(user) //await axios.post(`${process.env.REACT_APP_WITS_URL}login`, user);
+        //alert(res.message);
+        console.dir(res)
+        if (res.user) {
+            localStorage.setItem(`user`, JSON.stringify(res.user));
             setLoggedIn(true);
         }
     }
