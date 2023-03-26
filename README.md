@@ -10,11 +10,12 @@ It provides the following functionality:
 * User login using email and password
 * Users can add a "Wit" when they are logged in. This will attach their userId to the Wit.
 * The homepage displays all of the available Wits in reverse chronological order.
+* User passwords are encrypted using bcrypt and JWT.
 
 The project borrows features from the Todos app provided for reference by Digital Futures. It is tested using Chai, Mocha and Jest.
 
 There are lots of features that could be added, here are a few that would be important, both for my learning and better functionality:
-* JWT authentication - encrypting passwords. This is obviously vital for any genuinely deployed app.
+* Some of the user interface doesn't flow as well as it could. Verifying logins and postings and redirecting accordingly would be a good addition.
 * Replying to another user. This is an interesting feature to add because of the way is can reuse the functionality of other components, and create a chain of connections between the Wits. That conversation can get very complicated, very quickly, if replies to replies are also allowed, because of the branching threads that would be created. From a database point of view it isn't complicated though, since a reply can only be attached to one Wit.
 
 ## How to run the program
@@ -23,7 +24,7 @@ The easiest way is to use the Netlify version, which will run automatically.
 
 You can also clone the repository and run the app on your own machine. You will need to install the following:
 Backend:
-* npm i
+
 
 
 ### Standard Acceptance Criteria
