@@ -2,6 +2,7 @@ import React from 'react'
 import Wit from './Wit.jsx';
 import WitModel from './utils/Wit.model.js';
 import { useState, useEffect } from "react";
+import PropTypes from 'prop-types';
 
 const AllWits = ({ data }) => {
 
@@ -45,10 +46,14 @@ const AllWits = ({ data }) => {
     }
 
     return (
-        <div className='all-wits'>
+        <div className='all-wits col-lg'>
             {populateWits()}
         </div>
     )
 }
 
 export default AllWits;
+
+AllWits.propTypes = {
+    data: PropTypes.array
+};

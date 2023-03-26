@@ -19,6 +19,8 @@
     color: var(--secondary);
     background-color: var(--primary);
     padding: 10px;
+    margin: 20px;
+    max-width: 400px;
 }
 
 .link {
@@ -52,7 +54,7 @@
     background-color: var(--secondary);
     padding: 8px 8px 0 8px;
     min-height: 100px;
-    margin-bottom: 10px;
+    margin: 10px;
 }
 
 .user-name {

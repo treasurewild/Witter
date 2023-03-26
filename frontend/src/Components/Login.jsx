@@ -36,7 +36,7 @@ const Login = () => {
             setLoggedIn(true);
             return;
         }
-        alert(res.error.message);
+        alert(res.message);
     }
 
 

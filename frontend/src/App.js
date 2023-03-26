@@ -10,7 +10,7 @@ import AddWit from './Components/AddWit.jsx';
 
 function App() {
 
-    const [user, setUser] = useState({});
+    // const [user, setUser] = useState({});
 
     const [wits, setWits] = useState([]);
 
@@ -38,10 +38,10 @@ function App() {
         <div className="container-fluid">
             <Header />
             <Routes>
-                <Route path="/" element={<HomePage user={user} setUser={setUser} data={{ wits, error: error.message }} />} />
+                <Route path="/" element={<HomePage data={{ wits, error: error.message }} />} />
                 <Route path="/register" element={<Register />} />
                 <Route path="/login" element={<Login />} />
-                <Route path="/addWit" element={<AddWit user={user} setUser={setUser} />} />
+                <Route path="/addWit" element={<AddWit />} />
 
             </Routes>
 

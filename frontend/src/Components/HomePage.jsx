@@ -1,18 +1,19 @@
 import React from 'react'
 import User from './User.jsx';
 import AllWits from './AllWits.jsx';
+import PropTypes from 'prop-types';
 
-const HomePage = ({ user, setUser, data }) => {
+const HomePage = ({ data }) => {
     return (
-        <div className='main container-fluid row'>
-            <div className='col-3 offset-1'>
-                <User user={user} setUser={setUser} />
-            </div>
-            <div className='col-6'>
-                <AllWits data={data} />
-            </div>
+        <div className='main row container-fluid'>
+            <User />
+            <AllWits data={data} />
         </div>
     )
 }
 
 export default HomePage;
+
+HomePage.propTypes = {
+    data: PropTypes.array
+};

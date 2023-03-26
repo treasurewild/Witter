@@ -1,24 +1,24 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 
-const User = ({ user, setUser }) => {
+const User = () => {
+
+    const [user, setUser] = useState({});
 
     const logOut = () => {
         setUser({});
         localStorage.clear();
     }
 
-    // needed to do the useEffect here, not in the app component
     useEffect(() => {
         const loggedInUser = localStorage.getItem("user");
         if (loggedInUser)
             setUser(JSON.parse(loggedInUser));
     }, [setUser]);
 
-
     return (
-        <div className='user shadow text-center rounded'>
+        <div className='user shadow text-center rounded col-lg'>
             {localStorage.getItem('user') ?
                 <>
                     <h5>You are posting as:</h5>
@@ -29,7 +29,7 @@ const User = ({ user, setUser }) => {
                     <form action='/addWit'>
                         <button type="submit" className='m-2 btn btn-primary btn-lg btn-block' value="addWit">Add new Wit</button><br />
                     </form>
-                    <button type="submit" className='m-1 btn btn-secondary' value="Logout" onClick={() => logOut()}>Log Out</button>
+                    <button type="submit" className='m-1 btn btn-secondary' value="Logout" onClick={logOut}>Log Out</button>
                 </>
                 :
                 <>
@@ -38,7 +38,6 @@ const User = ({ user, setUser }) => {
                         <button type="submit" className='m-1 btn btn-success' value="Login">Login</button><br />
                     </form>
                     <Link className='link' to="/register">Register</Link><br />
-
                 </>
             }
         </div>

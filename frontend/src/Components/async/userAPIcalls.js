@@ -9,9 +9,9 @@ export const registerUser = async (user) => {
     catch (error) {
         return {
             status: error.response?.status,
+            message: error.response?.data.message,
             error: {
                 type: "post",
-                message: error.response.data.message
             }
         }
     }
@@ -23,11 +23,12 @@ export const submitLogin = async (user) => {
         return { message: res.data.message, status: res.status, user: res.data.user }
     }
     catch (error) {
+        console.dir(error)
         return {
             status: error.response?.status,
+            message: error.response?.data.message,
             error: {
                 type: "post",
-                message: error.response.data.message
             }
         }
     }

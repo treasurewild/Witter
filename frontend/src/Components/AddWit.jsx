@@ -5,9 +5,9 @@ import WitModel from './utils/Wit.model.js';
 import { postWit } from './async/witAPIcalls';
 import { useNavigate } from 'react-router-dom';
 
-const AddWit = ({ user, setUser }) => {
+const AddWit = () => {
 
-    const [wit, setWit] = useState({});
+    const [wit, setWit] = useState({ text: "" });
 
     const [success, setSuccess] = useState(false);
 
@@ -15,7 +15,7 @@ const AddWit = ({ user, setUser }) => {
 
     useEffect(() => {
         if (success) navigate('/');
-    }, [success])
+    }, [success, navigate])
 
     const postedBy = JSON.parse(localStorage.getItem('user'));
 
@@ -44,9 +44,7 @@ const AddWit = ({ user, setUser }) => {
 
     return (
         <div className='main container-fluid row'>
-            <div className='col-3 offset-1'>
-                <User user={user} setUser={setUser} />
-            </div>
+            <User />
             {localStorage.getItem('user') ?
                 <div className='col-6'>
                     <form onSubmit={addWit}>

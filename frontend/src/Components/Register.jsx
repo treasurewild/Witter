@@ -13,7 +13,7 @@ const Register = () => {
 
     useEffect(() => {
         if (success) navigate('/login');
-    }, [success])
+    }, [success, navigate])
 
     const [user, setUser] = useState({
         name: ``,
@@ -30,7 +30,6 @@ const Register = () => {
         });
     }
 
-    // it isnt registeing repeatedly now, but not giving error
     const register = async (e) => {
         e.preventDefault();
         setSuccess(false);
@@ -43,8 +42,7 @@ const Register = () => {
             setSuccess(true);
             return;
         }
-
-        alert(res.error.message);
+        alert(res.message);
     }
 
     return (

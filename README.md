@@ -3,7 +3,9 @@ Chitter Challenge
 
 ## Introduction
 
-This MERN (Mongoose, Express, React, Node.js) project creates a simple mock of a Twitter-like social media platform. Our working title was "Chitter", but I've taken the liberty of calling mine "Witter", so that people can share their "Wit".
+This MERN (Mongoose, Express, React, Node.js) project creates a simple mock of a Twitter-like social media platform. 
+
+Our working title was "Chitter", but I've taken the liberty of calling mine "Witter", so that people can share their "Wit".
 
 It provides the following functionality:
 * User registration (email, user name, user handle, password)
@@ -11,12 +13,21 @@ It provides the following functionality:
 * Users can add a "Wit" when they are logged in. This will attach their userId to the Wit.
 * The homepage displays all of the available Wits in reverse chronological order.
 * User passwords are encrypted using bcrypt and JWT.
+* express-validator has been used to check and sanitise the data sent through POST requests.
 
 The project borrows features from the Todos app provided for reference by Digital Futures. It is tested using Chai, Mocha and Jest.
 
 There are lots of features that could be added, here are a few that would be important, both for my learning and better functionality:
-* Some of the user interface doesn't flow as well as it could. Verifying logins and postings and redirecting accordingly would be a good addition.
+* The flow of the user interface feels fairly natural now, but this was an aspect I struggled to get right. I tried to ensure that alert messages arrive at the right times, and with the right information, and I think I have mostly achieved this.
 * Replying to another user. This is an interesting feature to add because of the way is can reuse the functionality of other components, and create a chain of connections between the Wits. That conversation can get very complicated, very quickly, if replies to replies are also allowed, because of the branching threads that would be created. From a database point of view it isn't complicated though, since a reply can only be attached to one Wit.
+
+## Testing
+
+The code has been tested, although there is always room for improvement! The tests can be run using the command line by navigating to the frontend and backend folders respectively. Tests are run using Jest, Mocha and Chai.
+
+Front end tests: `npm test`
+
+Back end tests: `npm run test-win` or `npm test`
 
 ## Resources
 
@@ -24,10 +35,17 @@ This project made extensive use of the Simple Login, Todo App and JWT examples g
 
 ## How to run the program
 
-The easiest way is to use the Netlify version, which will run automatically. 
+I have tried to create an online version using Netlify and Render, but have been defeated for now.
 
-You can also clone the repository and run the app on your own machine. You will need to install the following:
-Backend:
+To run the program as it is needs you to open 2 terminals, one in the frontend folder and one in the backend.
+
+Back end: `npm run start-win` or `npm start` depending on whether you are on Windows or Mac.
+
+Front end: `npm start` This will open automatically in your web browser.
+
+The app uses an online database at MongoDB Atlas, so there's no need to set up anything else. It uses separate databases for development and testing.
+
+You can register yourself if you'd like to post, but be aware that while passwords are encrypted, emails are sent as plaintext. If you'd prefer to use an existing user you can use the following details: Email: `docbrown@21gigawatts.com`, Password: `greatscott!`
 
 ## Reflections
 
