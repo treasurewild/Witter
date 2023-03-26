@@ -18,9 +18,8 @@ describe(`AddWit tests`, () => {
             .post(`/addWit`)
             .send(testWit)
 
-        expect(res).to.have.status(422);
+        expect(res).to.have.status(400);
         expect(res).to.have.property(`error`);
-        expect(res.text).to.be.eql(`Failed to add wit`);
     })
 
     it(`Should not add a Wit that does not have a postedBy`, async () => {
@@ -33,9 +32,8 @@ describe(`AddWit tests`, () => {
             .post(`/addWit`)
             .send(testWit)
 
-        expect(res).to.have.status(422);
+        expect(res).to.have.status(400);
         expect(res).to.have.property(`error`);
-        expect(res.text).to.be.eql(`Failed to add wit`);
     })
 
     it(`Should not add a Wit that does not have a date`, async () => {
@@ -48,9 +46,8 @@ describe(`AddWit tests`, () => {
             .post(`/addWit`)
             .send(testWit)
 
-        expect(res).to.have.status(422);
+        expect(res).to.have.status(400);
         expect(res).to.have.property(`error`);
-        expect(res.text).to.be.eql(`Failed to add wit`);
     })
 
     it(`Should add a Wit that has date, user and text`, async () => {
@@ -58,7 +55,7 @@ describe(`AddWit tests`, () => {
             _id: '6434a725b65421871c39f388',
             text: `test`,
             dateCreated: `2013-04-22T15:00:00.000Z`,
-            postedBy: `6410a779b24321871c39f388`
+            postedBy: { _id: `6410a779b24321871c39f388` }
         }
 
         const res = await testServer

@@ -10,7 +10,6 @@ router.route(`/`)
         try {
             const allWits = await Wit.find({})
                 .populate('postedBy', ['name', 'handle'])
-            //if (allWits.length === 0) throw new Error(`Wits not found`);
             res.json(allWits);
         } catch (error) {
             res.status(400);
