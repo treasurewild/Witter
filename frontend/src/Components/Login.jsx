@@ -28,9 +28,8 @@ const Login = () => {
 
     const login = async (e) => {
         e.preventDefault();
-        const res = await submitLogin(user) //await axios.post(`${process.env.REACT_APP_WITS_URL}login`, user);
+        const res = await submitLogin(user)
 
-        //console.dir(res)
         if (res.user) {
             alert(res.message);
             localStorage.setItem(`user`, JSON.stringify(res.user));

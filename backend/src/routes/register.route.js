@@ -18,10 +18,10 @@ router.post('/', (req, res) => {
                 .then((result) => { return res.status(200).send({ message: "Registration successful", result }) })
                 .catch(() => { return res.status(400).send({ message: 'This user already exists' }) })
         })
-        .catch((e) => {
+        .catch((error) => {
             res.status(500).send({
                 message: "Password was not hashed successfully",
-                e
+                error
             });
         });
 });

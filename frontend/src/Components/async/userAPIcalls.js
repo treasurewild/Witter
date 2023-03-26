@@ -1,12 +1,19 @@
 import axios from "axios";
 
-export const postUser = async (user) => {
+export const registerUser = async (user) => {
     try {
         const res = await axios.post(`${process.env.REACT_APP_WITS_URL}register`, user);
-        alert(res.data.message);
+        console.dir(res)
+        return { message: res.data.message, status: res.status, user: res.data.user }
     }
-    catch {
-        alert('There was a problem sending the data to the server')
+    catch (error) {
+        return {
+            status: error.response?.status,
+            error: {
+                type: "post",
+                message: error.response.data.message
+            }
+        }
     }
 }
 
@@ -16,8 +23,6 @@ export const submitLogin = async (user) => {
         return { message: res.data.message, status: res.status, user: res.data.user }
     }
     catch (error) {
-        console.dir(error)
-
         return {
             status: error.response?.status,
             error: {

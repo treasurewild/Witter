@@ -1,11 +1,19 @@
 
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import lightbulb from '../images/lightbulb.svg';
-import { useState } from 'react';
-import { postUser } from './async/userAPIcalls';
+import { useState, useEffect } from 'react';
+import { registerUser } from './async/userAPIcalls';
 
 const Register = () => {
+
+    const [success, setSuccess] = useState(false);
+
+    const navigate = useNavigate();
+
+    useEffect(() => {
+        if (success) navigate('/login');
+    }, [success])
 
     const [user, setUser] = useState({
         name: ``,
@@ -25,11 +33,18 @@ const Register = () => {
     // it isnt registeing repeatedly now, but not giving error
     const register = async (e) => {
         e.preventDefault();
-        const { name, handle, email, password } = user;
-        if (name && handle && email && password) {
-            postUser(user);
+        setSuccess(false);
+
+        const res = await registerUser(user);
+
+        if (res.status === 200) {
+            alert(res.message);
             setUser({ email: ``, password: ``, name: ``, handle: `` }); // Resets the inputs
+            setSuccess(true);
+            return;
         }
+
+        alert(res.error.message);
     }
 
     return (
