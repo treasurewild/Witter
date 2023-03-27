@@ -21,6 +21,37 @@ There are lots of features that could be added, here are a few that would be imp
 * The flow of the user interface feels fairly natural now, but this was an aspect I struggled to get right. I tried to ensure that alert messages arrive at the right times, and with the right information, and I think I have mostly achieved this.
 * Replying to another user. This is an interesting feature to add because of the way is can reuse the functionality of other components, and create a chain of connections between the Wits. That conversation can get very complicated, very quickly, if replies to replies are also allowed, because of the branching threads that would be created. From a database point of view it isn't complicated though, since a reply can only be attached to one Wit.
 
+## Domain Modelling
+
+#### Front End
+
+| Route | Element | Components
+|-----|-----|----- 
+| '/' | Home | User (conditional on login), allWits 
+| '/login' | Login | Login
+| '/register | Register | Register
+| '/addWit' | AddWit | User, AddWit
+
+#### External requests
+
+| Component | URL | Request
+|-----|-----|-----
+| Login | http://localhost:4000/login | POST
+| Register | http://localhost:4000/register | POST
+| AddWit | http://localhost:4000/addWit | POST
+| AllWits | http://localhost:4000/ | GET
+
+#### Back end
+
+| Route | Type | Body
+|-----|-----|-----
+| /login | POST | user: email, password
+| /register | POST | user: email, password, handle, name
+| /addWit | POST | wit: text
+| /allWits | GET | wit[]: postedBy, dateCreated, text
+
+
+
 ## Testing
 
 The code has been tested, although there is always room for improvement! The tests can be run using the command line by navigating to the frontend and backend folders respectively. Tests are run using Jest, Mocha and Chai.

@@ -44,6 +44,10 @@
     padding-bottom: 80px;
 }
 
+.text {
+    padding: 15px;
+}
+
 .info {
     color: var(--dkback);
     font-size: small;
