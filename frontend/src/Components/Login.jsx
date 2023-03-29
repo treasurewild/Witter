@@ -1,17 +1,9 @@
 import React from 'react';
 import lightbulb from '../images/lightbulb.svg';
-import { useNavigate, Link } from 'react-router-dom';
-import { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
+import { useState } from 'react';
 import { submitLogin } from './async/userAPIcalls';
 const Login = () => {
-
-    const navigate = useNavigate();
-
-    const [loggedIn, setLoggedIn] = useState(false);
-
-    useEffect(() => {
-        if (loggedIn) navigate('/');
-    }, [loggedIn, navigate])
 
     const [user, setUser] = useState({
         email: ``,
@@ -33,15 +25,13 @@ const Login = () => {
         if (res.user) {
             alert(res.message);
             localStorage.setItem(`user`, JSON.stringify(res.user));
-            setLoggedIn(true);
             return;
         }
         alert(res.message);
     }
 
-
     return (
-        <div className='main container-fluid align-middle text-center '>
+        <div className='align-middle text-center '>
             <img className="lightbulb" src={lightbulb} alt='lightbulb logo' />
             <h3>Login</h3>
             <form onSubmit={login}>

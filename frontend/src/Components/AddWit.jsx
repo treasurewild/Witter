@@ -1,6 +1,5 @@
 import React from 'react';
 import { useEffect, useState } from 'react';
-import User from './User';
 import WitModel from './utils/Wit.model.js';
 import { postWit } from './async/witAPIcalls';
 import { useNavigate } from 'react-router-dom';
@@ -43,13 +42,12 @@ const AddWit = () => {
     }
 
     return (
-        <div className='main container-fluid row'>
-            <User />
+        <div className='m-2'>
             {localStorage.getItem('user') ?
-                <div className='col-6'>
+                <div>
                     <form onSubmit={addWit}>
                         <div className="form-group">
-                            <label >Share your Wit:</label>
+                            <br />
                             <input className="form-control input-lg" id="add-wit" value={wit.text} type="text" onChange={handleChange} placeholder="Share your wit..." autoComplete="off" required />
                         </div>
                         <button type="submit" className='btn btn-success m-2'>
