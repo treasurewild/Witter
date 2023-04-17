@@ -1,5 +1,4 @@
 import AllWits from "../Components/AllWits";
-import { MemoryRouter } from 'react-router-dom';
 import { findAllByText, render, screen } from '@testing-library/react';
 import sampleWits from './sampleWits.json';
 
@@ -7,9 +6,7 @@ describe(`All Wits Tests`, () => {
     test(`Should render a loading message before the Wits are available`, async () => {
         const noData = { wits: [], error: `` };
         render(
-            <MemoryRouter>
-                <AllWits data={noData} />
-            </MemoryRouter>
+            <AllWits data={noData} />
         );
 
         expect(await screen.findByText(/loading/i)).toBeInTheDocument();
@@ -19,9 +16,7 @@ describe(`All Wits Tests`, () => {
         const errorData = { wits: [], error: `Error` };
         render
             (
-                <MemoryRouter >
-                    <AllWits data={errorData} />
-                </MemoryRouter>
+                <AllWits data={errorData} />
             );
 
         expect(await screen.findByText(/error/i)).toBeInTheDocument();
@@ -31,9 +26,7 @@ describe(`All Wits Tests`, () => {
         const witData = { wits: sampleWits, error: "" };
 
         render(
-            <MemoryRouter >
-                <AllWits data={witData} />
-            </MemoryRouter>
+            <AllWits data={witData} />
         );
 
         const wits = await screen.getAllByText(/Sample Wit/i);
@@ -42,9 +35,7 @@ describe(`All Wits Tests`, () => {
 
     test(`it should render a line saying there are no wits if empty`, async () => {
         render(
-            <MemoryRouter >
-                <AllWits data={{ wits: [], error: `There are no wits available` }} />
-            </MemoryRouter>
+            <AllWits data={{ wits: [], error: `There are no wits available` }} />
         );
 
         const wits = await screen.findByText(/There are no wits available/i);
@@ -55,9 +46,7 @@ describe(`All Wits Tests`, () => {
         const witData = { wits: sampleWits, error: "" };
 
         render(
-            <MemoryRouter >
-                <AllWits data={witData} />
-            </MemoryRouter>
+            <AllWits data={witData} />
         );
 
         const { wits } = witData;

@@ -1,6 +1,5 @@
 import Wit from "../Components/Wit";
 import { render, screen } from '@testing-library/react';
-import { MemoryRouter } from "react-router-dom";
 import WitModel from "../Components/utils/Wit.model";
 
 jest.mock("../Components/utils/Wit.model", () => {
@@ -21,9 +20,7 @@ describe(`Wit Component tests`, () => {
         const date = new Date(testWit.dateCreated).toUTCString();
 
         render(
-            <MemoryRouter>
-                <Wit wit={testWit} />
-            </MemoryRouter>
+            <Wit wit={testWit} />
         )
 
         const text = screen.getByText(testWit.text);
@@ -31,7 +28,7 @@ describe(`Wit Component tests`, () => {
         const dateCreated = screen.getByText(date);
 
         expect(text.className).toBe('text offset-1 col-10');
-        expect(postedBy.className).toBe('user-name');
+        expect(postedBy.className).toBe('user-name col');
         expect(dateCreated.className).toBe('date col-4 offset-8');
 
     });

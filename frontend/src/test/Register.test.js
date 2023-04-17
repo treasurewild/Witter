@@ -1,6 +1,5 @@
 import Register from "../Components/Register";
 import { render, screen } from '@testing-library/react';
-import { MemoryRouter } from "react-router-dom";
 
 jest.mock('../Components/utils/createId', () => () => 'test_id');
 
@@ -9,7 +8,7 @@ describe(`Register component tests`, () => {
     const mockSubmit = jest.fn(() => { });
 
     beforeEach(() => {
-        render(<MemoryRouter><Register /></MemoryRouter>)
+        render(<Register />)
     })
 
     test(`Should render title "create new account"`, () => {
