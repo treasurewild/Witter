@@ -20,9 +20,9 @@ const Login = ({ setCurrentUser, setRegister }) => {
     const login = async (e) => {
         e.preventDefault();
         const res = await submitLogin(user)
-
         if (res.user) {
             alert(res.message);
+
             localStorage.setItem(`user`, JSON.stringify(res.user))
             setCurrentUser(JSON.parse(localStorage.getItem('user')));
             return;

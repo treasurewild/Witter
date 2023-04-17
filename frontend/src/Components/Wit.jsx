@@ -10,7 +10,6 @@ const Wit = ({ wit }) => {
 
     return (
         <div className='container wit shadow rounded row'>
-            <img className='rounded-circle profile-pic shadow col-1' src={profilePic} alt="profile pic" />
             <h5 className='user-name col'>{postedBy.name} <span className='info'>@{postedBy.handle}</span></h5>
             <p className='text offset-1 col-10'>{text}</p>
             <div className='row info container-lg'>

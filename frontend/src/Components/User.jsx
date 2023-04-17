@@ -7,7 +7,6 @@ import Register from './Register';
 const User = () => {
 
     const [user, setUser] = useState({});
-
     const [register, setRegister] = useState(true);
 
     const logOut = () => {

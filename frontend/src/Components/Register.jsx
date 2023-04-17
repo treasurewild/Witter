@@ -28,6 +28,7 @@ const Register = ({ setRegister }) => {
 
         if (res.status === 200) {
             alert(res.message);
+
             setUser({ email: ``, password: ``, name: ``, handle: `` }); // Resets the inputs
             return;
         }
