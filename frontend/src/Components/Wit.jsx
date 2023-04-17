@@ -1,7 +1,6 @@
 import React from 'react';
 import WitModel from './utils/Wit.model.js';
 import PropTypes from 'prop-types';
-import profilePic from '../images/rsz_profile.jpg';
 
 const Wit = ({ wit }) => {
 
