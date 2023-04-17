@@ -1,5 +1,4 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import lightbulb from '../images/lightbulb.svg';
 import { useState } from 'react';
 import { submitLogin } from './async/userAPIcalls';
@@ -42,7 +41,7 @@ const Login = ({ setCurrentUser, setRegister }) => {
                 <br />
                 <button className="m-2 btn btn-success">Login</button>
             </form>
-            <Link onClick={() => setRegister(false)}>Sign up for a free account</Link>
+            <button className='btn link-primary' onClick={() => setRegister(false)}>Sign up for a free account</button>
         </div>
     )
 }

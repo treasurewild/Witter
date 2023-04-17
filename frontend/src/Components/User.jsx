@@ -6,7 +6,7 @@ import Register from './Register';
 
 const User = () => {
 
-    const [user, setUser] = useState({ name: 'Jim' });
+    const [user, setUser] = useState({});
 
     const [register, setRegister] = useState(true);
 
@@ -19,7 +19,7 @@ const User = () => {
         const loggedInUser = localStorage.getItem("user");
         if (loggedInUser)
             setUser(JSON.parse(loggedInUser));
-    }, [user, setUser]);
+    }, []);
 
     return (
         <div className='user shadow text-center rounded col-lg'>
@@ -36,7 +36,7 @@ const User = () => {
                 :
                 <>
                     {register ?
-                        <Login setCurrentUser={setUser} />
+                        <Login setCurrentUser={setUser} setRegister={setRegister} />
                         :
                         <Register setRegister={setRegister} />}
                 </>

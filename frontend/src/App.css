@@ -1,9 +1,9 @@
 :root {
-    --ltback: #539165;
-    --secondary: #3f497f;
-    --primary: #f7c04a;
-    --dkback: #f8f5e4;
-    --alt: black;
+    --ltback: #003566;
+    --secondary: #001d3d;
+    --primary: #ffc300;
+    --dkback: #ffd60a;
+    --alt: #000814;
 }
 
 .lightbulb {
@@ -12,6 +12,10 @@
 
 .home-link {
     color: var(--primary);
+    text-decoration: none;
+}
+
+.home-link>a {
     text-decoration: none;
 }
 

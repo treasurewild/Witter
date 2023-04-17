@@ -1,20 +1,11 @@
 import React from 'react';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import WitModel from './utils/Wit.model.js';
 import { postWit } from './async/witAPIcalls';
-import { useNavigate } from 'react-router-dom';
 
 const AddWit = () => {
 
     const [wit, setWit] = useState({ text: "" });
-
-    const [success, setSuccess] = useState(false);
-
-    const navigate = useNavigate();
-
-    useEffect(() => {
-        if (success) navigate('/');
-    }, [success, navigate])
 
     const postedBy = JSON.parse(localStorage.getItem('user'));
 
@@ -34,7 +25,6 @@ const AddWit = () => {
         if (res.status === 200) {
             alert(res.message);
             setWit({ text: `` }); // Resets the inputs
-            setSuccess(true);
             return;
         }
 
@@ -64,4 +54,4 @@ const AddWit = () => {
     )
 }
 
-export default AddWit
+export default AddWit;

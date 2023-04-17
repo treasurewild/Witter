@@ -1,7 +1,5 @@
 import Footer from './Components/Footer.jsx';
 import Header from './Components/Header.jsx';
-import Register from './Components/Register.jsx';
-import { Routes, Route } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import { getWits } from './Components/async/witAPIcalls.js';
 import User from './Components/User.jsx';
@@ -28,23 +26,15 @@ function App() {
 
     useEffect(() => {
         getWitsHandler();
-    }, []);
+    }, [wits]);
 
     return (
 
         <div className="container-fluid">
-
             <Header />
             <div className='main row container-fluid'>
-                <Routes>
-                    <Route path="/" element={
-                        <>
-                            <User />
-                            <AllWits data={{ wits, error: error.message }} />
-                        </>
-                    } />
-                    <Route path="/register" element={<Register />} />
-                </Routes>
+                <User />
+                <AllWits data={{ wits, error: error.message }} />
             </div>
             <Footer />
         </div>
