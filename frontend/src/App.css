@@ -19,7 +19,7 @@
     color: var(--secondary);
     background-color: var(--primary);
     padding: 10px;
-    margin: 20px;
+    margin: 10px;
     max-width: 400px;
 }
 
@@ -64,5 +64,3 @@
 .user-name {
     color: var(--primary);
 }
-
-.profile-pic {}

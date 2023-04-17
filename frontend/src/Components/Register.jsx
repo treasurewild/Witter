@@ -5,7 +5,7 @@ import lightbulb from '../images/lightbulb.svg';
 import { useState, useEffect } from 'react';
 import { registerUser } from './async/userAPIcalls';
 
-const Register = () => {
+const Register = ({ setRegister }) => {
 
     const [success, setSuccess] = useState(false);
 
@@ -46,11 +46,11 @@ const Register = () => {
     }
 
     return (
-        <div className='main container-fluid align-middle text-center '>
+        <div className='align-middle text-center '>
             <img className="lightbulb" src={lightbulb} alt='lightbulb logo' />
             <h3>Create new account</h3>
             <p>
-                Already have an account?&nbsp;<Link to="/login">Sign In</Link>
+                Already have an account?&nbsp;<Link onClick={() => setRegister(true)}>Sign In</Link>
             </p>
             <form onSubmit={register}>
                 <input className="m-1" type="text" id="create-account-name" value={user.name} name="name" placeholder="Full Name" onChange={handleChange} required />

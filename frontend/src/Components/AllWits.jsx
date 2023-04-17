@@ -54,6 +54,6 @@ const AllWits = ({ data }) => {
 
 export default AllWits;
 
-AllWits.propTypes = {
-    data: PropTypes.array
-};
+// AllWits.propTypes = {
+//     data: PropTypes.array
+// };

@@ -1,12 +1,14 @@
 import React from 'react';
-// import { Link } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import AddWit from './AddWit';
 import Login from './Login';
+import Register from './Register';
 
 const User = () => {
 
-    const [user, setUser] = useState({});
+    const [user, setUser] = useState({ name: 'Jim' });
+
+    const [register, setRegister] = useState(true);
 
     const logOut = () => {
         setUser({});
@@ -17,7 +19,7 @@ const User = () => {
         const loggedInUser = localStorage.getItem("user");
         if (loggedInUser)
             setUser(JSON.parse(loggedInUser));
-    }, [setUser, localStorage.getItem('user')]);
+    }, [user, setUser]);
 
     return (
         <div className='user shadow text-center rounded col-lg'>
@@ -29,20 +31,14 @@ const User = () => {
                         <h5>{user.name}</h5>
                         <h5>@{user.handle}</h5>
                     </div>
-                    {/* <form action='/addWit'>
-                        <button type="submit" className='m-2 btn btn-primary btn-lg btn-block' value="addWit">Add new Wit</button><br />
-                    </form> */}
                     <AddWit />
-
                 </>
                 :
                 <>
-                    <h5>You are not logged in.</h5>
-                    {/* <form action='/login'>
-                        <button type="submit" className='m-1 btn btn-success' value="Login">Login</button><br />
-                    </form> */}
-                    <Login />
-                    {/* <Link className='link' to="/register">Register</Link><br /> */}
+                    {register ?
+                        <Login setCurrentUser={setUser} />
+                        :
+                        <Register setRegister={setRegister} />}
                 </>
             }
         </div>

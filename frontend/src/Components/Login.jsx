@@ -1,9 +1,9 @@
 import React from 'react';
-import lightbulb from '../images/lightbulb.svg';
 import { Link } from 'react-router-dom';
+import lightbulb from '../images/lightbulb.svg';
 import { useState } from 'react';
 import { submitLogin } from './async/userAPIcalls';
-const Login = () => {
+const Login = ({ setCurrentUser, setRegister }) => {
 
     const [user, setUser] = useState({
         email: ``,
@@ -24,7 +24,8 @@ const Login = () => {
 
         if (res.user) {
             alert(res.message);
-            localStorage.setItem(`user`, JSON.stringify(res.user));
+            localStorage.setItem(`user`, JSON.stringify(res.user))
+            setCurrentUser(JSON.parse(localStorage.getItem('user')));
             return;
         }
         alert(res.message);
@@ -41,9 +42,7 @@ const Login = () => {
                 <br />
                 <button className="m-2 btn btn-success">Login</button>
             </form>
-            <Link to="/register">
-                Sign up for a free account
-            </Link>
+            <Link onClick={() => setRegister(false)}>Sign up for a free account</Link>
         </div>
     )
 }
