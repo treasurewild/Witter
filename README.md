@@ -114,7 +114,7 @@ Additional requirements:
 ------
 
 * You don't have to be logged in to see the peeps.
-* Trainee software engineers sign up to chitter with their email, password, name and a username (e.g. ewithers@digitalfutures.com, password123, Edward Withers, dearshrewdwit).
+* Trainee software engineers sign up to chitter with their email, password, name and a username (e.g. ewright@digitalfutures.com, password123, Ed Wright, edwright6975).
 * The username and email are unique.
 * Peeps (posts to chitter) have the name of the trainee and their user handle.
 * Your README should indicate the technologies used, and give instructions on how to install and run the tests.
