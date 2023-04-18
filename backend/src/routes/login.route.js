@@ -35,9 +35,8 @@ router.post('/',
 
                         res.status(200).json({
                             message: `Login successful`,
-                            email: user.email,
-                            user: user,
-                            token
+                            user: { name: user.name, handle: user.handle, _id: user._id },
+                            accessToken: token,
                         })
                     })
                     .catch((error) => {

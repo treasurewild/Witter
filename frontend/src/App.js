@@ -1,16 +1,11 @@
 import Footer from './Components/Footer.jsx';
 import Header from './Components/Header.jsx';
-import Register from './Components/Register.jsx';
-import Login from './Components/Login.jsx';
-import HomePage from './Components/HomePage.jsx';
-import { Routes, Route } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import { getWits } from './Components/async/witAPIcalls.js';
-import AddWit from './Components/AddWit.jsx';
+import User from './Components/User.jsx';
+import AllWits from './Components/AllWits.jsx';
 
 function App() {
-
-    // const [user, setUser] = useState({});
 
     const [wits, setWits] = useState([]);
 
@@ -37,18 +32,12 @@ function App() {
 
         <div className="container-fluid">
             <Header />
-            <Routes>
-                <Route path="/" element={<HomePage data={{ wits, error: error.message }} />} />
-                <Route path="/register" element={<Register />} />
-                <Route path="/login" element={<Login />} />
-                <Route path="/addWit" element={<AddWit />} />
-
-            </Routes>
-
+            <div className='main row container-fluid'>
+                <User />
+                <AllWits data={{ wits, error: error.message }} />
+            </div>
             <Footer />
-
         </div>
-
     );
 }
 

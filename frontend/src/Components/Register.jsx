@@ -1,19 +1,10 @@
 
 import React from 'react';
-import { Link, useNavigate } from 'react-router-dom';
 import lightbulb from '../images/lightbulb.svg';
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { registerUser } from './async/userAPIcalls';
 
-const Register = () => {
-
-    const [success, setSuccess] = useState(false);
-
-    const navigate = useNavigate();
-
-    useEffect(() => {
-        if (success) navigate('/login');
-    }, [success, navigate])
+const Register = ({ setRegister }) => {
 
     const [user, setUser] = useState({
         name: ``,
@@ -32,25 +23,24 @@ const Register = () => {
 
     const register = async (e) => {
         e.preventDefault();
-        setSuccess(false);
 
         const res = await registerUser(user);
 
         if (res.status === 200) {
             alert(res.message);
+
             setUser({ email: ``, password: ``, name: ``, handle: `` }); // Resets the inputs
-            setSuccess(true);
             return;
         }
         alert(res.message);
     }
 
     return (
-        <div className='main container-fluid align-middle text-center '>
+        <div className='align-middle text-center '>
             <img className="lightbulb" src={lightbulb} alt='lightbulb logo' />
             <h3>Create new account</h3>
             <p>
-                Already have an account?&nbsp;<Link to="/login">Sign In</Link>
+                <button className='btn link-primary' onClick={() => setRegister(true)}>Already have an account?&nbsp; Sign In</button>
             </p>
             <form onSubmit={register}>
                 <input className="m-1" type="text" id="create-account-name" value={user.name} name="name" placeholder="Full Name" onChange={handleChange} required />

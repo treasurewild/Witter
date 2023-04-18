@@ -1,17 +1,8 @@
 import React from 'react';
 import lightbulb from '../images/lightbulb.svg';
-import { useNavigate, Link } from 'react-router-dom';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import { submitLogin } from './async/userAPIcalls';
-const Login = () => {
-
-    const navigate = useNavigate();
-
-    const [loggedIn, setLoggedIn] = useState(false);
-
-    useEffect(() => {
-        if (loggedIn) navigate('/');
-    }, [loggedIn, navigate])
+const Login = ({ setCurrentUser, setRegister }) => {
 
     const [user, setUser] = useState({
         email: ``,
@@ -29,19 +20,18 @@ const Login = () => {
     const login = async (e) => {
         e.preventDefault();
         const res = await submitLogin(user)
-
         if (res.user) {
             alert(res.message);
-            localStorage.setItem(`user`, JSON.stringify(res.user));
-            setLoggedIn(true);
+
+            localStorage.setItem(`user`, JSON.stringify(res.user))
+            setCurrentUser(JSON.parse(localStorage.getItem('user')));
             return;
         }
         alert(res.message);
     }
 
-
     return (
-        <div className='main container-fluid align-middle text-center '>
+        <div className='align-middle text-center '>
             <img className="lightbulb" src={lightbulb} alt='lightbulb logo' />
             <h3>Login</h3>
             <form onSubmit={login}>
@@ -51,9 +41,7 @@ const Login = () => {
                 <br />
                 <button className="m-2 btn btn-success">Login</button>
             </form>
-            <Link to="/register">
-                Sign up for a free account
-            </Link>
+            <button className='btn link-primary' onClick={() => setRegister(false)}>Sign up for a free account</button>
         </div>
     )
 }

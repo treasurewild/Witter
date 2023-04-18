@@ -20,7 +20,7 @@ export const registerUser = async (user) => {
 export const submitLogin = async (user) => {
     try {
         const res = await axios.post(`${process.env.REACT_APP_WITS_URL}login`, user);
-        return { message: res.data.message, status: res.status, user: res.data.user }
+        return { message: res.data.message, status: res.status, user: res.data.user, accessToken: res.data.accessToken }
     }
     catch (error) {
         console.dir(error)
