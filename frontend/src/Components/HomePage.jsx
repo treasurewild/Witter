@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 
 const HomePage = ({ data }) => {
     return (
-        <div className='main row container-fluid'>
+        <div className='main '>
             <User />
             <AllWits data={data} />
         </div>

@@ -30,14 +30,14 @@ function App() {
 
     return (
 
-        <div className="container-fluid">
+        < >
             <Header />
-            <div className='main row container-fluid'>
+            <div className='main'>
                 <User />
                 <AllWits data={{ wits, error: error.message }} />
             </div>
             <Footer />
-        </div>
+        </>
     );
 }
 

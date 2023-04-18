@@ -1,5 +1,4 @@
 import React from 'react';
-import lightbulb from '../images/lightbulb.svg';
 import { useState } from 'react';
 import { submitLogin } from './async/userAPIcalls';
 const Login = ({ setCurrentUser, setRegister }) => {
@@ -31,8 +30,7 @@ const Login = ({ setCurrentUser, setRegister }) => {
     }
 
     return (
-        <div className='align-middle text-center '>
-            <img className="lightbulb" src={lightbulb} alt='lightbulb logo' />
+        <>
             <h3>Login</h3>
             <form onSubmit={login}>
                 <input className="m-1" aria-label="text" type="text" name='email' value={user.email} onChange={handleChange} placeholder='Email address' required />
@@ -42,7 +40,7 @@ const Login = ({ setCurrentUser, setRegister }) => {
                 <button className="m-2 btn btn-success">Login</button>
             </form>
             <button className='btn link-primary' onClick={() => setRegister(false)}>Sign up for a free account</button>
-        </div>
+        </ >
     )
 }
 

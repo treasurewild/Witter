@@ -46,7 +46,7 @@ const AllWits = ({ data }) => {
     }
 
     return (
-        <div className='all-wits col-lg'>
+        <div className='col all-wits'>
             {populateWits()}
         </div>
     )

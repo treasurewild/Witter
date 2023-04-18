@@ -1,6 +1,5 @@
 
 import React from 'react';
-import lightbulb from '../images/lightbulb.svg';
 import { useState } from 'react';
 import { registerUser } from './async/userAPIcalls';
 
@@ -36,12 +35,8 @@ const Register = ({ setRegister }) => {
     }
 
     return (
-        <div className='align-middle text-center '>
-            <img className="lightbulb" src={lightbulb} alt='lightbulb logo' />
+        <>
             <h3>Create new account</h3>
-            <p>
-                <button className='btn link-primary' onClick={() => setRegister(true)}>Already have an account?&nbsp; Sign In</button>
-            </p>
             <form onSubmit={register}>
                 <input className="m-1" type="text" id="create-account-name" value={user.name} name="name" placeholder="Full Name" onChange={handleChange} required />
                 <br />
@@ -55,7 +50,8 @@ const Register = ({ setRegister }) => {
                     Register
                 </button>
             </form>
-        </div>
+            <button className='btn link-primary' onClick={() => setRegister(true)}>Already have an account?&nbsp; Sign In</button>
+        </>
     )
 }
 
