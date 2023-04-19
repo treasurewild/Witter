@@ -6,7 +6,7 @@ Chitter Challenge
 This MERN (Mongoose, Express, React, Node.js) project creates a simple mock of a Twitter-like social media platform. 
 
 Our working title was "Chitter", but I've taken the liberty of calling mine "Witter", so that people can share their "Wit".
-You can use a deployed version at: https://develop--treasurewild-witter.netlify.app/
+You can use a deployed version at: https://treasurewild-witter.netlify.app/
 
 It provides the following functionality:
 * User registration (email, user name, user handle, password)
