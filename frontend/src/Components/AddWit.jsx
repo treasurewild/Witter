@@ -21,7 +21,7 @@ const AddWit = () => {
             return;
         }
 
-        alert(res.error.message);
+        alert(res.message);
     }
 
     return (

@@ -39,7 +39,6 @@ router.put('/reply',
 
         const { dateCreated, text, postedBy, _id } = req.body.reply;
         const reply = new Wit(req.body.reply);
-        console.log(reply)
 
         if (dateCreated && text && postedBy) {
             reply.save()
@@ -49,7 +48,7 @@ router.put('/reply',
                 })
                 .catch(() => res.status(400).send({ message: 'There was a problem posting your wit' }))
         }
-        else return res.status(422).send({ error: { message: `Failed to add wit` } });
+        else return res.status(422).send({ message: `Failed to add wit` });
     });
 
 export { router as addWit };

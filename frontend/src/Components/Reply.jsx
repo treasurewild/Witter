@@ -12,6 +12,7 @@ const Reply = ({ witId }) => {
         e.preventDefault();
         const currentDate = new Date();
         const newReply = { _id: createId(), text: reply, dateCreated: currentDate, postedBy: currentUser, original: false }
+        console.log(witId)
         const res = await postReply({ reply: newReply, witId: witId });
 
         if (res.status === 200) {
@@ -21,7 +22,7 @@ const Reply = ({ witId }) => {
             return;
         }
 
-        alert(res.error.message);
+        alert(res.message);
     }
 
     return (
