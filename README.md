@@ -5,7 +5,7 @@ Chitter Challenge
 
 This MERN (Mongoose, Express, React, Node.js) project creates a simple mock of a Twitter-like social media platform. 
 
-Our working title was "Chitter", but I've taken the liberty of calling mine "Witter", so that people can share their "Wit".
+Our working title was "Chitter", but I took the liberty of calling mine "Witter", so that people can share their "Wit".
 You can use a deployed version at: https://treasurewild-witter.netlify.app/
 
 It provides the following functionality:
@@ -15,12 +15,14 @@ It provides the following functionality:
 * The homepage displays all of the available Wits in reverse chronological order.
 * User passwords are encrypted using bcrypt and JWT.
 * express-validator has been used to check and sanitise the data sent through POST requests.
+* Users who are logged in can reply to "Wit". This uses the same Schema as a Wit, and pushes to an array of replies references.
+* If replies are available they are displayed underneath the Wit.
 
 The project borrows features from the Todos app provided for reference by Digital Futures. It is tested using Chai, Mocha and Jest.
 
 There are lots of features that could be added, here are a few that would be important, both for my learning and better functionality:
-* The flow of the user interface feels fairly natural now, but this was an aspect I struggled to get right. I tried to ensure that alert messages arrive at the right times, and with the right information, and I think I have mostly achieved this.
-* Replying to another user. This is an interesting feature to add because of the way is can reuse the functionality of other components, and create a chain of connections between the Wits. That conversation can get very complicated, very quickly, if replies to replies are also allowed, because of the branching threads that would be created. From a database point of view it isn't complicated though, since a reply can only be attached to one Wit.
+* The flow of the user interface feels fairly natural now, but this was an aspect I struggled to get right. I tried to ensure that alert messages arrive at the right times, and with the right information, and I think I have mostly achieved this. The alerts are themselves a barrier to the user experience, and it would be preferable to make some of them feature as part of the page instead.
+* I've added a feature to reply to another user, but Twitter's feature for this is far more complex, allowing replies to replies and creating a cascading and branching chain of a conversation.
 
 ## Domain Modelling
 
@@ -39,7 +41,7 @@ There are lots of features that could be added, here are a few that would be imp
 |-----|-----|-----
 | Login | http://localhost:4000/login | POST
 | Register | http://localhost:4000/register | POST
-| AddWit | http://localhost:4000/addWit | POST
+| AddWit | http://localhost:4000/addWit | POST, PUT
 | AllWits | http://localhost:4000/ | GET
 
 #### Back end
@@ -51,11 +53,9 @@ There are lots of features that could be added, here are a few that would be imp
 | /addWit | POST | wit: text
 | /allWits | GET | wit[]: postedBy, dateCreated, text
 
-
-
 ## Testing
 
-The code has been tested, although there is always room for improvement! The tests can be run using the command line by navigating to the frontend and backend folders respectively. Tests are run using Jest, Mocha and Chai.
+The code has been tested, although there is always room for improvement! The tests can be run using the command line by navigating to the frontend and backend folders respectively. Tests are run using Jest, Mocha and Chai. I would like to improve test coverage, but first I need to do some more research into what and how to test certain features.
 
 Front end tests: `npm test`
 
@@ -67,24 +67,25 @@ This project made extensive use of the Simple Login, Todo App and JWT examples g
 
 ## How to run the program
 
-I have tried to create an online version using Netlify and Render, but have been defeated for now.
-
 To run the program as it is needs you to open 2 terminals, one in the frontend folder and one in the backend.
 
 Back end: `npm run start-win` or `npm start` depending on whether you are on Windows or Mac.
 
 Front end: `npm start` This will open automatically in your web browser.
 
-The app uses an online database at MongoDB Atlas, so there's no need to set up anything else. It uses separate databases for development and testing.
+You will need to setup environment variables, listening on PORT 4000 and with access to a Mongo Database either locally or online.
 
-You can register yourself if you'd like to post, but be aware that while passwords are encrypted, emails are sent as plaintext. If you'd prefer to use an existing user you can use the following details: Email: `docbrown@21gigawatts.com`, Password: `greatscott!`
+You can register yourself if you'd like to post, but be aware that while passwords are encrypted, emails are sent as plaintext. If you'd prefer to use an existing user you can use the following details in the deployed version: Email: `docbrown@21gigawatts.com`, Password: `greatscott!`
 
 ## Reflections
 
 Despite the limited functionality of this app at present, the process of development was much more complex than on previous challenges. I found it hard to stay focussed on achieving small increments towards each user story, and despite making a thorough plan for the structure of my program it was tricky to stick to it. I found testing some parts of a program difficult and need to learn more about this. I also need to take more time over making components work in the way I want them to from the start. In this case a lack of experience or confidence led to me moving on from some tasks once the basic functionality worked, because I struggled to implement slightly different flows to the UI, and it was difficult to estimate the time it might take to improve them. This stored up a problem for later when different parts of the code function in slightly different ways, and altering the functionality at this stage becomes fraught with minor problems. I feel like if I started the project from the beginning I would have a better idea of hwo this would work in the future, but it will also be a useful exercise to clean up my existing code without creating new problems.
 
+The original version of the project is at commit `ace2094`, and used different routes for login, register and allWits. Since then I have added features and changed some of the functionality so that it is a single-page application. There is still some work to do to make it more functional on smaller screens, but I'm pleased with what I've been able to add. It also showed me that I've learned a lot about React in the meantime, as I was able to add these features relatively easily. It also involved new features on teh backend, such as pushing to a nested array in the Wit schema, and populating nested references.
 
-### Standard Acceptance Criteria
+### User Stories
+The App needed to meet the following criteria:
+
 ```
 As a trainee software engineer
 So that I can let people know what I am doing  
