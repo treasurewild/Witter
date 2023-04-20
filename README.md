@@ -17,6 +17,8 @@ It provides the following functionality:
 * express-validator has been used to check and sanitise the data sent through POST requests.
 * Users who are logged in can reply to "Wit". This uses the same Schema as a Wit, and pushes to an array of replies references.
 * If replies are available they are displayed underneath the Wit.
+* A user who is logged in can delete any Wit, or Replies, that they posted.
+* Deleting your own Wit does not delete the replies, but replies are only displayed attached to an existing Wit.
 
 The project borrows features from the Todos app provided for reference by Digital Futures. It is tested using Chai, Mocha and Jest.
 
@@ -27,6 +29,8 @@ There are lots of features that could be added, here are a few that would be imp
 ## Domain Modelling
 
 #### Front End
+
+This is the original routing, now removed.
 
 | Route | Element | Components
 |-----|-----|----- 
@@ -41,7 +45,7 @@ There are lots of features that could be added, here are a few that would be imp
 |-----|-----|-----
 | Login | http://localhost:4000/login | POST
 | Register | http://localhost:4000/register | POST
-| AddWit | http://localhost:4000/addWit | POST, PUT
+| AddWit | http://localhost:4000/addWit | POST, PUT, DELETE
 | AllWits | http://localhost:4000/ | GET
 
 #### Back end
@@ -51,7 +55,9 @@ There are lots of features that could be added, here are a few that would be imp
 | /login | POST | user: email, password
 | /register | POST | user: email, password, handle, name
 | /addWit | POST | wit: text
-| /allWits | GET | wit[]: postedBy, dateCreated, text
+| /addWit/reply | PUT | reply: text
+| /addWit | DELETE | _id
+| /allWits | GET | wit[]: postedBy, dateCreated, text, replies
 
 ## Testing
 
