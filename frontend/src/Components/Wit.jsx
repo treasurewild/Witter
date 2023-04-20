@@ -18,9 +18,9 @@ const Wit = ({ wit, user }) => {
             <h5 className='user-name'>{postedBy.name} <span className='info'>@{postedBy.handle}</span></h5>
             <p className='text offset-1 col-10'>{text}</p>
             <p className='info d-flex justify-content-end'>{date}</p>
-            {localStorage.getItem('user') && <Reply witId={wit._id} />}
+            {localStorage.getItem('user') && user.handle !== postedBy.handle && <Reply witId={wit._id} />}
+            {user.handle === postedBy.handle && <button className='btn btn-sm btn-danger' onClick={handleDelete}>Delete</button>}
             <Replies replies={wit.replies} user={user} />
-            {user.handle === postedBy.handle && <button className='btn btn-sm btn-secondary' onClick={handleDelete}>Delete</button>}
         </div>
     )
 }

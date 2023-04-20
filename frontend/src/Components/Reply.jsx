@@ -39,7 +39,7 @@ const Reply = ({ witId }) => {
                     </button>
                 </form>
                 :
-                <button className='btn btn-warning' onClick={() => setShowReply(true)}>Reply</button>
+                <button className='btn btn-sm btn-warning' onClick={() => setShowReply(true)}>Reply</button>
             }
         </div>
     )
