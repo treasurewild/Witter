@@ -12,7 +12,7 @@ const Wit = ({ wit }) => {
             <h5 className='user-name'>{postedBy.name} <span className='info'>@{postedBy.handle}</span></h5>
             <p className='text offset-1 col-10'>{text}</p>
             <p className='info d-flex justify-content-end'>{date}</p>
-            <Reply witId={wit._id} />
+            {localStorage.getItem('user') && <Reply witId={wit._id} />}
             <Replies replies={wit.replies} />
         </div>
     )

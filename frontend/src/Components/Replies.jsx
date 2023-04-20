@@ -1,7 +1,9 @@
-import React from 'react'
+import React, { useState } from 'react'
 import ReplyFormat from './ReplyFormat';
 
 const Replies = ({ replies }) => {
+
+    const [showReplies, setShowReplies] = useState(false);
 
     const populateReplies = () => {
 
@@ -14,10 +16,12 @@ const Replies = ({ replies }) => {
                 }
                 return null;
             });
-            return (<>
-                <h5>Replies</h5>
-                {display}
-            </>)
+            return (
+                <>
+                    <button className='btn btn-sm btn-secondary m-2' onClick={() => setShowReplies(!showReplies)}>{showReplies ? 'Hide Replies' : 'Show Replies'}</button>
+                    {showReplies && display}
+                </>
+            )
         }
         return;
     }
