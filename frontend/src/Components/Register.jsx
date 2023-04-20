@@ -29,6 +29,7 @@ const Register = ({ setRegister }) => {
             alert(res.message);
 
             setUser({ email: ``, password: ``, name: ``, handle: `` }); // Resets the inputs
+            setRegister(false);
             return;
         }
         alert(res.message);
@@ -50,7 +51,7 @@ const Register = ({ setRegister }) => {
                     Register
                 </button>
             </form>
-            <button className='btn link-primary' onClick={() => setRegister(true)}>Already have an account?&nbsp; Sign In</button>
+            <button className='btn link-primary' onClick={() => setRegister(true)}>Already have an account? Sign In</button>
         </>
     )
 }

@@ -8,8 +8,12 @@ const router = express.Router();
 router.route(`/`)
     .get(async (req, res) => {
         try {
-            const allWits = await Wit.find({})
+            const allWits = await Wit.find({ original: true })
                 .populate('postedBy', ['name', 'handle'])
+                .populate({
+                    path: 'replies',
+                    populate: { path: 'postedBy' }
+                });
             res.json(allWits);
         } catch (error) {
             res.status(400);

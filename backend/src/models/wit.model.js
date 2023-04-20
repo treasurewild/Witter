@@ -8,7 +8,12 @@ const witSchema = new mongoose.Schema(
         postedBy: {
             type: mongoose.Schema.Types.ObjectId,
             ref: "User"
-        }
+        },
+        replies: [{
+            type: mongoose.Schema.Types.ObjectId,
+            ref: "Wit"
+        }],
+        original: { type: Boolean, default: true }
     }
 );
 

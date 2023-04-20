@@ -26,7 +26,7 @@ function App() {
 
     useEffect(() => {
         getWitsHandler();
-    }, [wits]);
+    }, []);
 
     return (
 

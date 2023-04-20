@@ -28,3 +28,20 @@ export const postWit = async wit => {
         }
     }
 }
+
+export const postReply = async data => {
+    try {
+        const res = await axios.put(`${process.env.REACT_APP_WITS_URL}addWit/reply`, data)
+        console.log(res.data)
+        return { message: res.data.message, status: res.status, user: res.data.user }
+    }
+    catch (error) {
+        return {
+            status: error.response?.status,
+            message: error.response?.data.message,
+            error: {
+                type: "post",
+            }
+        }
+    }
+}
