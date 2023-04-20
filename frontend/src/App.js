@@ -8,7 +8,7 @@ import AllWits from './Components/AllWits.jsx';
 function App() {
 
     const [wits, setWits] = useState([]);
-
+    const [user, setUser] = useState({});
     const [error, setError] = useState({ type: ``, message: `` });
 
     const getWitsHandler = async () => {
@@ -33,8 +33,8 @@ function App() {
         < >
             <Header />
             <div className='main'>
-                <User />
-                <AllWits data={{ wits, error: error.message }} />
+                <User user={user} setUser={setUser} />
+                <AllWits data={{ wits, error: error.message }} user={user} />
             </div>
             <Footer />
         </>
