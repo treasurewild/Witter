@@ -30,14 +30,14 @@ function App() {
 
     return (
 
-        < >
+        <div className='d-flex flex-column'>
             <Header />
             <div className='main'>
                 <User user={user} setUser={setUser} />
                 <AllWits data={{ wits, error: error.message }} user={user} />
             </div>
             <Footer />
-        </>
+        </div>
     );
 }
 

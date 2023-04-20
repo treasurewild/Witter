@@ -3,9 +3,11 @@ import wilLogo from '../images/wil-logo.png';
 
 const Footer = () => {
     return (
-        <div className='navbar fixed-bottom container-fluid'>
-            <p className='container-lg col-6'>&copy; A MongoDB, Express, React and  Node.js App by Wil Treasure</p> <a className='home-link' target="blank" href="http://wiltreasure.co.uk">wiltreasure.co.uk</a>
-            <img src={wilLogo} className='mh-100 ' alt="Wil Treasure text" />
+        <div className='navbarfooter fixed-bottom text-center'>
+            <p className=''>&copy; A MongoDB, Express, React and  Node.js App by <a className='home-link' target="blank" href="http://wiltreasure.co.uk">Wil Treasure</a></p>
+            <a className='home-link' target="blank" href='https://github.com/treasurewild/Witter'>Find this project on GitHub</a>
+
+
         </div>
     )
 }

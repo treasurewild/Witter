@@ -28,7 +28,7 @@ const User = ({ user, setUser }) => {
                     <h5>You are posting as:</h5>
                     <div className='rounded user-box m-1'>
                         <h5>{user.name}</h5>
-                        <h5>@{user.handle}</h5>
+                        <h5><span className='text-warning'>@</span>{user.handle}</h5>
                     </div>
                     <AddWit />
                 </>

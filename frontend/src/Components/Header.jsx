@@ -3,9 +3,9 @@ import lightbulb from '../images/lightbulb.svg';
 
 const Header = () => {
     return (
-        <div className='navbar fixed-top home-link'>
-            <img className='col-1 lightbulb' src={lightbulb} alt='lightbulb logo' />
-            <h1 className='col-11'>Witter</h1>
+        <div className='navbar fixed-top d-flex justify-content-center'>
+            <img className='lightbulb' src={lightbulb} alt='lightbulb logo' />
+            <h1>Witter</h1>
         </div>
     )
 }
