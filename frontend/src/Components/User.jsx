@@ -22,7 +22,7 @@ const User = () => {
     }, []);
 
     return (
-        <div className='user shadow text-center rounded'>
+        <div className='user shadow text-center'>
             {localStorage.getItem('user') ?
                 <>
                     <button type="submit" className='m-1 btn btn-secondary' value="Logout" onClick={logOut}>Log Out</button>
@@ -38,8 +38,6 @@ const User = () => {
                     <div className='align-middle text-center '>
                         <img className="lightbulb" src={lightbulb} alt='lightbulb logo' />
                         {register ?
-
-
                             <Login setCurrentUser={setUser} setRegister={setRegister} />
                             :
                             <Register setRegister={setRegister} />}

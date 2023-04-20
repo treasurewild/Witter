@@ -23,7 +23,6 @@
     color: var(--secondary);
     background-color: var(--primary);
     padding: 10px;
-    margin: 1px;
     max-width: 1000px;
 }
 
@@ -73,4 +72,12 @@
 
 .user-name {
     color: var(--primary);
+}
+
+.reply {
+    margin-left: 20px;
+    margin-right: 20px;
+    margin-bottom: 5px;
+    padding: 10px;
+    background-color: #003566;
 }

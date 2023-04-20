@@ -1,6 +1,5 @@
 import React from 'react'
 import Wit from './Wit.jsx';
-import WitModel from './utils/Wit.model.js';
 import { useState, useEffect } from "react";
 import PropTypes from 'prop-types';
 
@@ -26,8 +25,7 @@ const AllWits = ({ data }) => {
             const displayWits = wits.map(currentWit => {
                 // Wits that have no user attached to the ID are not displayed.
                 if (currentWit.postedBy !== null) {
-                    const wit = new WitModel(currentWit.text, currentWit.dateCreated, currentWit.postedBy);
-                    return (<Wit wit={wit} key={wit._id} />)
+                    return (<Wit wit={currentWit} key={currentWit._id} />)
                 }
                 return null;
             });

@@ -1,9 +1,9 @@
 import React from 'react';
-import WitModel from './utils/Wit.model.js';
 import PropTypes from 'prop-types';
+import Reply from './Reply.jsx';
+import Replies from './Replies.jsx';
 
 const Wit = ({ wit }) => {
-
     const { text, dateCreated, postedBy } = wit;
     const date = new Date(dateCreated).toUTCString();
 
@@ -12,12 +12,14 @@ const Wit = ({ wit }) => {
             <h5 className='user-name'>{postedBy.name} <span className='info'>@{postedBy.handle}</span></h5>
             <p className='text offset-1 col-10'>{text}</p>
             <p className='info d-flex justify-content-end'>{date}</p>
+            <Reply witId={wit._id} />
+            <Replies replies={wit.replies} />
         </div>
     )
 }
 
 Wit.propTypes = {
-    wit: PropTypes.instanceOf(WitModel)
+    wit: PropTypes.object
 }
 
 export default Wit;
