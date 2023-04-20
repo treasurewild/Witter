@@ -32,7 +32,6 @@ export const postWit = async wit => {
 export const postReply = async data => {
     try {
         const res = await axios.put(`${process.env.REACT_APP_WITS_URL}addWit/reply`, data)
-        console.log(res.data)
         return { message: res.data.message, status: res.status, user: res.data.user }
     }
     catch (error) {
@@ -43,5 +42,16 @@ export const postReply = async data => {
                 type: "post",
             }
         }
+    }
+}
+
+export const deleteWit = async id => {
+    try {
+        console.log(id)
+        const res = await axios.delete(`${process.env.REACT_APP_WITS_URL}addWit`, { data: { id: id } });
+        return { message: res.data.message, status: res.status }
+    }
+    catch (err) {
+        return { message: 'Could not communicate with server' }
     }
 }

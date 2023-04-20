@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import ReplyFormat from './ReplyFormat';
 
-const Replies = ({ replies }) => {
+const Replies = ({ replies, user }) => {
 
     const [showReplies, setShowReplies] = useState(false);
 
@@ -12,7 +12,7 @@ const Replies = ({ replies }) => {
             const display = replies.map(reply => {
                 // Wits that have no user attached to the ID are not displayed.
                 if (reply.postedBy !== null) {
-                    return (<ReplyFormat reply={reply} key={reply._id} />)
+                    return (<ReplyFormat reply={reply} key={reply._id} user={user} />)
                 }
                 return null;
             });

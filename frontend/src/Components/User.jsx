@@ -5,9 +5,8 @@ import Login from './Login';
 import Register from './Register';
 import lightbulb from '../images/lightbulb.svg';
 
-const User = () => {
+const User = ({ user, setUser }) => {
 
-    const [user, setUser] = useState({});
     const [register, setRegister] = useState(true);
 
     const logOut = () => {

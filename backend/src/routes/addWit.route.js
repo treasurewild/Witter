@@ -51,4 +51,16 @@ router.put('/reply',
         else return res.status(422).send({ message: `Failed to add wit` });
     });
 
+router.delete('/',
+
+    async (req, res) => {
+        try {
+            await Wit.findByIdAndDelete(req.body.id)
+            res.status(200).send({ message: 'Wit deleted' })
+        }
+        catch {
+            res.status(400).send({ message: 'Wit not deleted' })
+        }
+    })
+
 export { router as addWit };

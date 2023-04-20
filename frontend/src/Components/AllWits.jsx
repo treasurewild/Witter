@@ -3,7 +3,7 @@ import Wit from './Wit.jsx';
 import { useState, useEffect } from "react";
 import PropTypes from 'prop-types';
 
-const AllWits = ({ data }) => {
+const AllWits = ({ data, user }) => {
 
     const [dataStatus, setDataStatus] = useState({ name: `loading`, message: `Data is loading...` });
 
@@ -25,7 +25,7 @@ const AllWits = ({ data }) => {
             const displayWits = wits.map(currentWit => {
                 // Wits that have no user attached to the ID are not displayed.
                 if (currentWit.postedBy !== null) {
-                    return (<Wit wit={currentWit} key={currentWit._id} />)
+                    return (<Wit wit={currentWit} key={currentWit._id} user={user} />)
                 }
                 return null;
             });
