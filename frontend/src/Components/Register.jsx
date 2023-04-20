@@ -29,7 +29,7 @@ const Register = ({ setRegister }) => {
             alert(res.message);
 
             setUser({ email: ``, password: ``, name: ``, handle: `` }); // Resets the inputs
-            setRegister(false);
+            setRegister(true);
             return;
         }
         alert(res.message);
