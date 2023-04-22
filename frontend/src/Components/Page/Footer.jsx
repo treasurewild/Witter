@@ -1,5 +1,4 @@
 import React from 'react';
-import wilLogo from '../images/wil-logo.png';
 
 const Footer = () => {
     return (

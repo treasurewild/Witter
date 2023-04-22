@@ -1,7 +1,7 @@
 
 import React from 'react';
 import { useState } from 'react';
-import { registerUser } from './async/userAPIcalls';
+import { registerUser } from '../../async/userAPIcalls';
 
 const Register = ({ setRegister }) => {
 
