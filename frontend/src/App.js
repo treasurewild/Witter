@@ -1,9 +1,10 @@
-import Footer from './Components/Footer.jsx';
-import Header from './Components/Header.jsx';
+import Footer from './Components/Page/Footer.jsx';
+import Header from './Components/Page/Header.jsx';
 import { useState, useEffect } from 'react';
-import { getWits } from './Components/async/witAPIcalls.js';
-import User from './Components/User.jsx';
-import AllWits from './Components/AllWits.jsx';
+import { getWits, postWit, postReply, deleteWit } from '../src/async/witAPIcalls.js';
+import createId from './utils/createId.js';
+import User from './Components/User/User.jsx';
+import AllWits from './Components/Wits/AllWits.jsx';
 
 function App() {
 
@@ -24,6 +25,40 @@ function App() {
         setWits(wits);
     }
 
+    const addWit = async (wit) => {
+        const currentDate = new Date();
+        const newWit = { _id: createId(), text: wit, dateCreated: currentDate, postedBy: user, original: true }
+        const res = await postWit(newWit);
+
+        if (res.status === 200) {
+            alert(res.message);
+            getWitsHandler();
+            return;
+        }
+
+        alert(res.message);
+    }
+
+    const addReply = async (reply, witId) => {
+        const currentDate = new Date();
+        const newReply = { _id: createId(), text: reply, dateCreated: currentDate, postedBy: user, original: false }
+        const res = await postReply({ reply: newReply, witId: witId });
+
+        if (res.status === 200) {
+            alert(res.message);
+            getWitsHandler();
+            return;
+        }
+
+        alert(res.message);
+    }
+
+    const handleDelete = async (witId) => {
+        const res = await deleteWit(witId);
+        getWitsHandler();
+        alert(res.message)
+    }
+
     useEffect(() => {
         getWitsHandler();
     }, []);
@@ -33,8 +68,8 @@ function App() {
         <div className='d-flex flex-column'>
             <Header />
             <div className='main'>
-                <User user={user} setUser={setUser} />
-                <AllWits data={{ wits, error: error.message }} user={user} />
+                <User user={user} setUser={setUser} addWit={addWit} />
+                <AllWits data={{ wits, error: error.message }} user={user} addReply={addReply} handleDelete={handleDelete} />
             </div>
             <Footer />
         </div>

@@ -1,11 +1,11 @@
 import React from 'react';
-import { useEffect, useState } from 'react';
-import AddWit from './AddWit';
+import { useState } from 'react';
+import AddWit from '../Wits/AddWit';
 import Login from './Login';
 import Register from './Register';
-import lightbulb from '../images/lightbulb.svg';
+import lightbulb from '../../images/lightbulb.svg';
 
-const User = ({ user, setUser }) => {
+const User = ({ user, setUser, addWit }) => {
 
     const [register, setRegister] = useState(true);
 
@@ -13,12 +13,6 @@ const User = ({ user, setUser }) => {
         setUser({});
         localStorage.clear();
     }
-
-    useEffect(() => {
-        const loggedInUser = localStorage.getItem("user");
-        if (loggedInUser)
-            setUser(JSON.parse(loggedInUser));
-    }, []);
 
     return (
         <div className='user shadow text-center'>
@@ -30,7 +24,7 @@ const User = ({ user, setUser }) => {
                         <h5>{user.name}</h5>
                         <h5><span className='text-warning'>@</span>{user.handle}</h5>
                     </div>
-                    <AddWit />
+                    <AddWit addWit={addWit} />
                 </>
                 :
                 <>

@@ -1,5 +1,5 @@
 import React from 'react';
-import lightbulb from '../images/lightbulb.svg';
+import lightbulb from '../../images/lightbulb.svg';
 
 const Header = () => {
     return (
