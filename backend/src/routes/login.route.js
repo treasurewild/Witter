@@ -17,6 +17,10 @@ router.post('/',
 
         User.findOne({ email: req.body.email })
             .then((user) => {
+                if(!user)
+                    res.status(204).json({
+                        message: 'User not found'
+                    });
                 bcrypt.compare(req.body.password, user.password)
                     .then((passwordCheck) => {
                         if (!passwordCheck) {
@@ -48,7 +52,7 @@ router.post('/',
             })
             .catch((error) => {
                 res.status(404).send({
-                    message: `User not found`,
+                    message: `There was a problem accessing the database`,
                     error
                 })
             })
